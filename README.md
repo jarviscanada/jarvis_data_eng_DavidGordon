@@ -15,7 +15,7 @@ Hi, my name is David Gordon. I am a professional Software Engineer based in Toro
 Project source code: [https://github.com/jarviscanada/jarvis_data_eng_DavidGordon](https://github.com/jarviscanada/jarvis_data_eng_DavidGordon)
 
 
-**Cluster Monitor** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_DavidGordon/tree/master/linux_sql)]: Suspendisse a tincidunt odio. Suspendisse posuere luctus aliquet. Quisque magna tellus, tempor vitae arcu sed, volutpat scelerisque lacus. Aliquam varius pulvinar dapibus. Ut a tincidunt sem. Aenean sollicitudin fringilla erat ut imperdiet. Phasellus fermentum, enim vitae laoreet elementum, eros nisl hendrerit lorem.
+**Cluster Monitor** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_DavidGordon/tree/master/linux_sql)]: Created bash scripts to capture and store hardware info and usage into a PostgreSQL database
 
 **Core Java Apps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_DavidGordon/tree/master/core_java)]:
       
@@ -35,7 +35,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_DavidGordo
 
 
 ## Highlighted Projects
-**Web app for resturant** [[GitHub](https://github.com/jarviscanada/jarvis_profile_builder)]: Suspendisse a tincidunt odio. Suspendisse posuere luctus aliquet. Quisque magna tellus, tempor vitae arcu sed, volutpat scelerisque lacus. Aliquam varius pulvinar dapibus. Ut a tincidunt sem. Aenean sollicitudin fringilla erat ut imperdiet. Phasellus fermentum, enim vitae laoreet elementum, eros nisl hendrerit lorem.
+**Flashtyper type tester** [[GitHub](https://github.com/davidgordon12/FlashTyper-MVC)]: An online typing speed tracker with a global leaderboard. Written in C# ASP.NET, data is stored in a Microsoft SQL Server database, hosted in the cloud via Azure
 
 **Machine Learning**: Suspendisse a tincidunt odio. Suspendisse posuere luctus aliquet. Quisque magna tellus, tempor vitae arcu sed, volutpat scelerisque lacus. Aliquam varius pulvinar dapibus. Ut a tincidunt sem. Aenean sollicitudin fringilla erat ut imperdiet. Phasellus fermentum, enim vitae laoreet elementum, eros nisl hendrerit lorem.
 
