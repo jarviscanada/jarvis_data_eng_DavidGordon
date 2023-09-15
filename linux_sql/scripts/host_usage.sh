@@ -16,7 +16,7 @@ memory_free=$(echo "$vmstat_mb" | tail -1 | awk '{print $4}' | xargs)
 cpu_idle=$(echo "$vmstat_mb" | tail -1 | awk '{print $15}' | xargs)
 cpu_kernel=$(echo "$vmstat_mb" | tail -1 | awk '{print $14}' | xargs)
 disk_io=$(vmstat --unit M -d | tail -1 | awk '{print $10}' | xargs)
-disk_available=$(df -BM / | tail -1 | awk {'print +$4'} | xargs)
+disk_available=$(df -BM / | tail -1 | awk {'print $4'} | sed s/M// | xargs)
 
 # Current time in `YYYY-MM-DD HH:MM:SS` UTC format
 timestamp=$(vmstat -t | awk '{print $18, $19}' | tail -1 | xargs)
