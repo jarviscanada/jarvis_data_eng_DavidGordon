@@ -5,7 +5,7 @@ github_repo_root_url: https://github.com/jarviscanada/jarvis_data_eng_DavidGordo
 
 # Introduce yourself, your academic and professional background.
 # What excites you about the software industry and your passion. At least 80 words
-summary: Hi, my name is David Gordon. I am a professional Software Engineer based in Toronto, working on various projects at Jarvis. I received a diploma in computer programming from Conestoga College, and solved many problems along the way. I'm experienced in various technologies, languages and frameworks, creating efficient applications and elegant interfaces.
+summary: Hi, my name is David Gordon. I am a professional Software Engineer based in Toronto, working on various projects at Jarvis. I received a diploma in computer programming from Conestoga College, and I'm experienced in various technologies, languages and frameworks, creating efficient applications and elegant interfaces. I've created RestAPI's in Go, Rust, C# and Java, as well as full-stack apps using Blazor, Bootstrap, Angular, and deployed them to the cloud via Azure.
 
 # Group your skills by level.
 # Your skills can be anything software related (e.g. language, frameworks, methodologies, software, etc.).
@@ -40,27 +40,6 @@ jarvis_projects:
     # The project description allows hiring managers to understand your project and technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
     # The project description must start with an action verb (https://bit.ly/3guO98u)
     description: "The Linux Cluster Monitoring Agent is a simple yet powerful solution to gathering a host system's hardware information and usage. This product is intended for IT teams who need a way to log and review their systems usage to manage server costs and performance." 
-  - name: "Core Java Apps"
-    git_url: "/core_java"
-    description:
-      - "Twitter App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
-      - "JDBC App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
-      - "Grep App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
-  - name: "Springboot App"
-    git_url: "/springboot"
-    description: ""
-  - name: "Python Data Analytics"
-    git_url: "/python_data_anlytics"
-    description: ""
-  - name: "Hadoop"
-    git_url: "/hadoop"
-    description: ""
-  - name: "Spark"
-    git_url: "/spark"
-    description: ""
-  - name: "Cloud/DevOps"
-    git_url: "/cloud_devops"
-    description: ""
 
 # List of personal or academic projects
 # Feel free to add more projects
@@ -98,14 +77,7 @@ education:
     department: "Computer Engineering"
     # optional
     awards_achievements: 
-      - "Scholarship"
-      - "Dean's List (2015, 2016): Ut enim ad minim veniam"
-      - "GPA: 3.8/4.0"
-  - school_name: "XYZ university"
-    duration: "2016-2018"
-    degree: "Master of Engineering"
-    department: "Electrical and Computer Engineering"
-    awards_achievements: 
+      - "First Place VAR Lab Fall Hackathon"
 
 #Optional section
 others:
@@ -113,13 +85,12 @@ others:
   - title: "Certificates"
     #list of items
     bullets:
-      - "Udacity Machine Learning (2019)"
+      - "Unity Game Programming (2023)"
   - title: "Awards"
     bullets:
-      - "Winner"
+      - "5th Place Ontario Regional Volleyball (2015)"
   - title: "Activities/Hobbies"
     bullets:
-      - "Basketball player"
-      - "Competitive gaming"
-      - "Volunteer, ABC Food bank: Ut enim ad minim veniam"
-
+      - "Web Design"
+      - "Open Source Development"
+      - "Soccer, Cars and Video Games!"

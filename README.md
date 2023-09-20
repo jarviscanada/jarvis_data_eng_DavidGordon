@@ -1,6 +1,6 @@
 # David Gordon . Jarvis Consulting
 
-Hi, my name is David Gordon. I am a professional Software Engineer based in Toronto, working on various projects at Jarvis. I received a diploma in computer programming from Conestoga College, and solved many problems along the way. I'm experienced in various technologies, languages and frameworks, creating efficient applications and elegant interfaces.
+Hi, my name is David Gordon. I am a professional Software Engineer based in Toronto, working on various projects at Jarvis. I received a diploma in computer programming from Conestoga College, and I'm experienced in various technologies, languages and frameworks, creating efficient applications and elegant interfaces. I've created RestAPI's in Go, Rust, C# and Java, as well as full-stack apps using Blazor, Bootstrap, Angular, and deployed them to the cloud via Azure.
 
 ## Skills
 
@@ -16,22 +16,6 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_DavidGordo
 
 
 **Cluster Monitor** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_DavidGordon/tree/master/linux_sql)]: The Linux Cluster Monitoring Agent is a simple yet powerful solution to gathering a host system's hardware information and usage. This product is intended for IT teams who need a way to log and review their systems usage to manage server costs and performance.
-
-**Core Java Apps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_DavidGordon/tree/master/core_java)]:
-      
-  - Twitter App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.
-  - JDBC App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.
-  - Grep App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.
-
-**Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_DavidGordon/tree/master/springboot)]: Not Started
-
-**Python Data Analytics** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_DavidGordon/tree/master/python_data_anlytics)]: Not Started
-
-**Hadoop** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_DavidGordon/tree/master/hadoop)]: Not Started
-
-**Spark** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_DavidGordon/tree/master/spark)]: Not Started
-
-**Cloud/DevOps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_DavidGordon/tree/master/cloud_devops)]: Not Started
 
 
 ## Highlighted Projects
@@ -49,16 +33,12 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_DavidGordo
 
 ## Education
 **Conestoga College (2020-2023)**, Diploma of Computer Programming, Computer Engineering
-- Scholarship
-- Dean's List (2015, 2016): Ut enim ad minim veniam
-- GPA: 3.8/4.0
-
-**XYZ university (2016-2018)**, Master of Engineering, Electrical and Computer Engineering
+- First Place VAR Lab Fall Hackathon
 
 
 ## Miscellaneous
-- Udacity Machine Learning (2019)
-- Winner
-- Basketball player
-- Competitive gaming
-- Volunteer, ABC Food bank: Ut enim ad minim veniam
+- Unity Game Programming (2023)
+- 5th Place Ontario Regional Volleyball (2015)
+- Web Design
+- Open Source Development
+- Soccer, Cars and Video Games!

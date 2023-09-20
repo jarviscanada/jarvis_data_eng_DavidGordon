@@ -2,21 +2,12 @@
   "education": [
     {
       "awards_achievements": [
-        "Scholarship",
-        "Dean's List (2015, 2016): Ut enim ad minim veniam",
-        "GPA: 3.8/4.0"
+        "First Place VAR Lab Fall Hackathon"
       ],
       "degree": "Diploma of Computer Programming",
       "department": "Computer Engineering",
       "duration": "2020-2023",
       "school_name": "Conestoga College"
-    },
-    {
-      "awards_achievements": null,
-      "degree": "Master of Engineering",
-      "department": "Electrical and Computer Engineering",
-      "duration": "2016-2018",
-      "school_name": "XYZ university"
     }
   ],
   "github_repo_root_url": "https://github.com/jarviscanada/jarvis_data_eng_DavidGordon",
@@ -37,61 +28,27 @@
       "description": "The Linux Cluster Monitoring Agent is a simple yet powerful solution to gathering a host system's hardware information and usage. This product is intended for IT teams who need a way to log and review their systems usage to manage server costs and performance.",
       "git_url": "/linux_sql",
       "name": "Cluster Monitor"
-    },
-    {
-      "description": [
-        "Twitter App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.",
-        "JDBC App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.",
-        "Grep App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
-      ],
-      "git_url": "/core_java",
-      "name": "Core Java Apps"
-    },
-    {
-      "description": "",
-      "git_url": "/springboot",
-      "name": "Springboot App"
-    },
-    {
-      "description": "",
-      "git_url": "/python_data_anlytics",
-      "name": "Python Data Analytics"
-    },
-    {
-      "description": "",
-      "git_url": "/hadoop",
-      "name": "Hadoop"
-    },
-    {
-      "description": "",
-      "git_url": "/spark",
-      "name": "Spark"
-    },
-    {
-      "description": "",
-      "git_url": "/cloud_devops",
-      "name": "Cloud/DevOps"
     }
   ],
   "name": "David Gordon",
   "others": [
     {
       "bullets": [
-        "Udacity Machine Learning (2019)"
+        "Unity Game Programming (2023)"
       ],
       "title": "Certificates"
     },
     {
       "bullets": [
-        "Winner"
+        "5th Place Ontario Regional Volleyball (2015)"
       ],
       "title": "Awards"
     },
     {
       "bullets": [
-        "Basketball player",
-        "Competitive gaming",
-        "Volunteer, ABC Food bank: Ut enim ad minim veniam"
+        "Web Design",
+        "Open Source Development",
+        "Soccer, Cars and Video Games!"
       ],
       "title": "Activities/Hobbies"
     }
@@ -134,5 +91,5 @@
       "C#"
     ]
   },
-  "summary": "Hi, my name is David Gordon. I am a professional Software Engineer based in Toronto, working on various projects at Jarvis. I received a diploma in computer programming from Conestoga College, and solved many problems along the way. I'm experienced in various technologies, languages and frameworks, creating efficient applications and elegant interfaces."
+  "summary": "Hi, my name is David Gordon. I am a professional Software Engineer based in Toronto, working on various projects at Jarvis. I received a diploma in computer programming from Conestoga College, and I'm experienced in various technologies, languages and frameworks, creating efficient applications and elegant interfaces. I've created RestAPI's in Go, Rust, C# and Java, as well as full-stack apps using Blazor, Bootstrap, Angular, and deployed them to the cloud via Azure."
 }
