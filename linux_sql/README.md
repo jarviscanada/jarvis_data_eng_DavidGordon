@@ -25,7 +25,8 @@ Shell script description and usage
 - ddl.sql > Connects to the host_agent database and creates usage and info tables
 
 ## Database Modeling
-- `host_info`
+- `host_info` <br >
+The host info table contains specific information about the host machine. <br />
 `Id:` Auto-incremented identifier for each row (PK) <br />
 `Hostname:` A unique field that holds the name of the target machine <br />
 `CPU Number:` The number of CPU cores present <br />
@@ -36,7 +37,8 @@ Shell script description and usage
 `Total Memory:` The total RAM available in Megabytes <br />
 `Timestamp:` UTC timestamp when the row was inserted into the PostgreSQL database <br />
 
-- `host_usage`
+- `host_usage` <br />
+The host usage table contains specific information about the hosts hardware information and activity. <br />
 `Host Id:` Foreign key that links each row back to a host stored in host_info (FK) <br />
 `Memory Free:` The amount of memory free in Megabytes <br />
 `CPU Idle:` The amount of time spent idle <br />
