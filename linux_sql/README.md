@@ -26,15 +26,15 @@ Shell script description and usage
 
 ## Database Modeling
 - `host_info`
-`Id: Auto-incremented identifier for each row (PK) <br />
-`Hostname: A unique field that holds the name of the target machine <br />
-`CPU Number: The number of CPU cores present <br />
-`CPU Architecture: The CPU architecture (i.e. x86, ARM, RISC V) <br />
-`CPU Model: The CPU Model number <br />
-`CPU Mhz: The speed in which a CPU can execute instructions <br />
-`L2 Cache: The CPUs cache size in Kilobytes <br />
-`Total Memory: The total RAM available in Megabytes <br />
-`Timestamp: UTC timestamp when the row was inserted into the PostgreSQL database <br />
+`Id:` Auto-incremented identifier for each row (PK) <br />
+`Hostname:` A unique field that holds the name of the target machine <br />
+`CPU Number:` The number of CPU cores present <br />
+`CPU Architecture:` The CPU architecture (i.e. x86, ARM, RISC V) <br />
+`CPU Model:` The CPU Model number <br />
+`CPU Mhz:` The speed in which a CPU can execute instructions <br />
+`L2 Cache:` The CPUs cache size in Kilobytes <br />
+`Total Memory:` The total RAM available in Megabytes <br />
+`Timestamp:` UTC timestamp when the row was inserted into the PostgreSQL database <br />
 
 - `host_usage`
 `Host Id:` Foreign key that links each row back to a host stored in host_info (FK) <br />
