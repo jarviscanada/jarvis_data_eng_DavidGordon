@@ -26,25 +26,24 @@ Shell script description and usage
 
 ## Database Modeling
 - `host_info`
-`Id: Auto-incremented identifier for each row (PK)`
-`Hostname: A unique field that holds the name of the target machine`
-`CPU Number: The number of CPU cores present`
-`CPU Architecture: The CPU architecture (i.e. x86, ARM, RISC V)`
-`CPU Model: The CPU Model number`
-`CPU Mhz: The speed in which a CPU can execute instructions`
-`L2 Cache: The CPUs cache size in Kilobytes`
-`Total Memory: The total RAM available in Megabytes`
-`Timestamp: UTC timestamp when the row was inserted into the PostgreSQL database`
-
+`Id: Auto-incremented identifier for each row (PK) <br />
+`Hostname: A unique field that holds the name of the target machine <br />
+`CPU Number: The number of CPU cores present <br />
+`CPU Architecture: The CPU architecture (i.e. x86, ARM, RISC V) <br />
+`CPU Model: The CPU Model number <br />
+`CPU Mhz: The speed in which a CPU can execute instructions <br />
+`L2 Cache: The CPUs cache size in Kilobytes <br />
+`Total Memory: The total RAM available in Megabytes <br />
+`Timestamp: UTC timestamp when the row was inserted into the PostgreSQL database <br />
 
 - `host_usage`
-`Host Id: Foreign key that links each row back to a host stored in host_info (FK)`
-`Memory Free: The amount of memory free in Megabytes`
-`CPU Idle: The amount of time spent idle`
-`CPU Kernel: The amount of time spent running kernel code`
-`Disk IO: Current IO transfer speeds`
-`Disk Space Available: Amount of disk space available in Megabytes`
-`Timestamp: UTC timestamp when the row was inserted into the PostgreSQL database`
+`Host Id:` Foreign key that links each row back to a host stored in host_info (FK) <br />
+`Memory Free:` The amount of memory free in Megabytes <br />
+`CPU Idle:` The amount of time spent idle <br />
+`CPU Kernel:` The amount of time spent running kernel code <br />
+`Disk IO:` Current IO transfer speeds <br />
+`Disk Space Available:` Amount of disk space available in Megabytes <br />
+`Timestamp:` UTC timestamp when the row was inserted into the PostgreSQL database <br />
 
 # Test
 DDL scripts were tested by running the scripts and querying the database to see if the expected result was outputted.
