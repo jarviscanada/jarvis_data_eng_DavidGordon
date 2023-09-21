@@ -46,3 +46,4 @@ VALUES (
 export PGPASSWORD=$psql_password
 
 psql -h $psql_host -p $psql_port -d $psql_database -U $psql_username  -c "$insert_statement"
+exit $?
