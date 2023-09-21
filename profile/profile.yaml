@@ -1,0 +1,96 @@
+# Preferred name (Characters only)
+name: "David Gordon"
+# Your GitHub repo root URL
+github_repo_root_url: https://github.com/jarviscanada/jarvis_data_eng_DavidGordon
+
+# Introduce yourself, your academic and professional background.
+# What excites you about the software industry and your passion. At least 80 words
+summary: Hi, my name is David Gordon. I am a professional Software Engineer based in Toronto, working on various projects at Jarvis. I received a diploma in computer programming from Conestoga College, and I'm experienced in various technologies, languages and frameworks, creating efficient applications and elegant interfaces. I've created RestAPI's in Go, Rust, C# and Java, as well as full-stack apps using Blazor, Bootstrap, Angular, and deployed them to the cloud via Azure.
+
+# Group your skills by level.
+# Your skills can be anything software related (e.g. language, frameworks, methodologies, software, etc.).
+skills:
+  # At least 5 skills
+  proficient:
+    - Java
+    - Linux/Bash
+    - RDBMS/SQL
+    - Agile/Scrum
+    - Git
+    - C#
+  # At least 5 skills
+  competent:
+    - C/C++
+    - Rust
+    - Typescript
+    - Python
+    - React
+  # At least 5 skills
+  familiar:
+    - Azure
+    - Angular
+    - Assembly
+    - Lua
+    - Non-Relational DBs
+
+# List of Jarvis projects
+jarvis_projects:
+  - name: "Cluster Monitor"
+    git_url: "/linux_sql"
+    # The project description allows hiring managers to understand your project and technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
+    # The project description must start with an action verb (https://bit.ly/3guO98u)
+    description: "The Linux Cluster Monitoring Agent is a simple yet powerful solution to gathering a host system's hardware information and usage. This product is intended for IT teams who need a way to log and review their systems usage to manage server costs and performance." 
+
+# List of personal or academic projects
+# Feel free to add more projects
+highlighted_projects:
+    #project name
+  - name: "Flashtyper type tester"
+    #URL is optional
+    git_url: "https://github.com/davidgordon12/FlashTyper-MVC"
+    # The project description must start with an action verb (https://bit.ly/3guO98u)
+    description: "Online typing speed tracker with a global leaderboard. Written in C# ASP.NET, data is stored in a Microsoft SQL Server database, hosted in the cloud via Azure" 
+  - name: "Epistle"
+    git_url: "https://github.com/davidgordon12/epistle" 
+    description: "Note-taking web application focused on simplicity and portability. Allows the user to create 'Bookshelves' to store and organize their notes. Implemented in ASP.NET Core, EntityFrameworkCore and Microsft SQL Server database."
+    
+#List of professional experience
+#The job description allows hiring managers to understand your job and the technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
+#The description must be more than 25 words. If your experience is not software related, please focus on soft skills and achievements (e.g. team collaboration, problem-solving, improvements, communication).
+professional_experience:
+  #Write your Jarvis role as a professional experience rather than training.
+  - title: "Software Developer"
+    company: "Jarvis"
+    duration: "2023-present"
+    # The project description must start with an action verb (https://bit.ly/3guO98u)
+    description: "As a profesional developer at Jarvis, I am responsible for creating and managing various software projects, as well as testing, debugging, automating, and deploying the applications. I use Agile/Scrum methods to keep my work organized and ensure I finish tasks on time, and proper GitFlow to keep my software workflow consistent."
+  - title: "Software Developer"
+    company: "VAR Lab"
+    duration: "2023 Jan-2023 April"
+    description: "Designed software solutions and tests to support the creation of an augmented/virtual reality platform that can be easily extended/modified to support a range of demo projects in support of ongoing Applied Research objectives at Conestoga College."
+
+#List of edcuation
+education: 
+  - school_name: "Conestoga College"
+    duration: "2020-2023"
+    degree: "Diploma of Computer Programming"
+    department: "Computer Engineering"
+    # optional
+    awards_achievements: 
+      - "First Place VAR Lab Fall Hackathon"
+
+#Optional section
+others:
+    #category
+  - title: "Certificates"
+    #list of items
+    bullets:
+      - "Unity Game Programming (2023)"
+  - title: "Awards"
+    bullets:
+      - "5th Place Ontario Regional Volleyball (2015)"
+  - title: "Activities/Hobbies"
+    bullets:
+      - "Web Design"
+      - "Open Source Development"
+      - "Soccer, Cars and Video Games!"
