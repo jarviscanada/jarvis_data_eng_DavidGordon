@@ -15,7 +15,7 @@ fi
 
 # HTTP Get Request
 quote=$(curl --request GET \
-	--url 'https://alpha-vantage.p.rapidapi.com/query?function=GLOBAL_QUOTE&symbol=MSFT&datatype=json' \
+	--url 'https://alpha-vantage.p.rapidapi.com/query?function=GLOBAL_QUOTE&symbol='$symbol'&datatype=json' \
 	--header 'X-RapidAPI-Host: alpha-vantage.p.rapidapi.com' \
 	--header 'X-RapidAPI-Key: '$api_key'' | jq)
 
