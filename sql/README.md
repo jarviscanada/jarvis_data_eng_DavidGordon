@@ -16,7 +16,9 @@ CREATE TABLE bookings (
     slots integer NOT NULL
 );
 ```
+
 <br />
+
 ```sql
 CREATE TABLE facilities (
     facid integer NOT NULL,
@@ -27,7 +29,9 @@ CREATE TABLE facilities (
     monthlymaintenance numeric NOT NULL
 );
 ```
+
 <br />
+
 ```sql
 CREATE TABLE members (
     memid integer NOT NULL,
@@ -40,6 +44,7 @@ CREATE TABLE members (
     joindate timestamp without time zone NOT NULL
 );
 ```
+
 <br />
 
 Next we can insert our dummy data that's in the clubdata.sql file. <br />
