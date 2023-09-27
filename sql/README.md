@@ -1,6 +1,6 @@
-ntroduction
+# Introduction
 
-# SQL Queries
+## SQL Queries
 
 ###### Table Setup (DDL)
 It's important that we first create our tables before we can try to run any queries against them! <br />
