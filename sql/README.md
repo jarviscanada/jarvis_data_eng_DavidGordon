@@ -129,7 +129,8 @@ WHERE membercost > 0
 SELECT *
 FROM cd.facilities
 WHERE name LIKE '%Tennis%'
-  
+```
+
 ##### 3. Matching against multiple possible values
 ```sql
 SELECT *
@@ -153,7 +154,7 @@ FROM cd.members AS surname
 UNION
 SELECT name
 FROM cd.facilities AS surname 
-  ```
+```
 
 #### Joins
 
