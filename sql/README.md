@@ -47,10 +47,11 @@ CREATE TABLE members (
 
 <br />
 
-Next we can insert our dummy data that's in the clubdata.sql file. <br />
-You can try that with the following. <br />
-```psql -U <username> -f clubdata.sql -d postgres -x -q``` <br />
-Or you can run the queries in a GUI db manager like dbeaver or pgadmin.
+Next we can insert our dummy data that's in the clubdata.sql file. You can try that with the following. <br />
+```psql -U <username> -f clubdata.sql -d postgres -x -q```
+<br /> <br />
+Or you can run the queries in a GUI db manager like ```dbeaver``` or ```pgadmin```.
+<br /> <br />
 The order of insertion is important, since bookings relies on both facilities and members, it's important to insert data into those two tables first.
 
 ###### Question 1: Show all members 
