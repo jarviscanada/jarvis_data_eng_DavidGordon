@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class JavaGrepImpl implements JavaGrep {
@@ -21,7 +22,12 @@ public class JavaGrepImpl implements JavaGrep {
 
     @Override
     public void process() throws IOException {
+        List<String> matchedLines = new ArrayList<String>();
 
+        // List Files
+        // Read All Lines of Listed Files
+        // Check each line if it containsPattern
+        // WriteToFile each matched line to outFile
     }
 
     @Override
@@ -46,31 +52,31 @@ public class JavaGrepImpl implements JavaGrep {
 
     @Override
     public String getRootPath() {
-        return null;
+        return this.rootPath;
     }
 
     @Override
     public void setRootPath(String rootPath) {
-
+        this.rootPath = rootPath;
     }
 
     @Override
     public String getRegex() {
-        return null;
+        return this.regex;
     }
 
     @Override
     public void setRegex(String regex) {
-
+        this.regex = regex;
     }
 
     @Override
     public String getOutFile() {
-        return null;
+        return this.outFile;
     }
 
     @Override
     public void setOutFile(String outFile) {
-
+        this.outFile = outFile;
     }
 }
