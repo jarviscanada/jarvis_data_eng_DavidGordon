@@ -5,8 +5,13 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UncheckedIOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class JavaGrepImpl implements JavaGrep {
     final Logger logger = LoggerFactory.getLogger(JavaGrep.class);
@@ -28,11 +33,22 @@ public class JavaGrepImpl implements JavaGrep {
         // Read All Lines of Listed Files
         // Check each line if it containsPattern
         // WriteToFile each matched line to outFile
+
+        listFiles("C:\\Users\\akali\\Documents");
     }
 
     @Override
     public List<File> listFiles(String rootDir) {
-        return null;
+        List<File> files = new ArrayList<File>();
+        try (Stream<Path> paths = Files.walk(Paths.get(rootDir))) {
+            paths.forEach(path -> files.add(new File(path.toString())));
+        } catch (IOException ex) {
+            logger.error("Error - Invalid Root Path: ", ex);
+        } catch (UncheckedIOException ex) {
+            logger.error("Error - Access to path denied: ", ex);
+        }
+
+        return files;
     }
 
     @Override
