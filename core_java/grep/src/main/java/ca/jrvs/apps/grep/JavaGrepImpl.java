@@ -28,13 +28,21 @@ public class JavaGrepImpl implements JavaGrep {
     @Override
     public void process() throws IOException {
         List<String> matchedLines = new ArrayList<String>();
+        List<File> files = listFiles(rootPath);
+        List<String> lines = new ArrayList<String>();
 
-        // List Files
-        // Read All Lines of Listed Files
-        // Check each line if it containsPattern
-        // WriteToFile each matched line to outFile
+        for(File f : files) {
+            lines = readLines(f);
+        }
 
-        listFiles("C:\\Users\\akali\\Documents");
+        for(String line : lines) {
+            if(containsPattern(line)) {
+                matchedLines.add(line);
+            }
+        }
+
+       // Write matchedLines to outfile
+       writeToFile(matchedLines);
     }
 
     @Override
