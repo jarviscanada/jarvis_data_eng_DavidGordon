@@ -3,9 +3,7 @@ package ca.jrvs.apps.grep;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.UncheckedIOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -31,18 +29,18 @@ public class JavaGrepImpl implements JavaGrep {
         List<File> files = listFiles(rootPath);
         List<String> lines = new ArrayList<String>();
 
-        for(File f : files) {
+        for (File f : files) {
             lines = readLines(f);
         }
 
-        for(String line : lines) {
-            if(containsPattern(line)) {
+        for (String line : lines) {
+            if (containsPattern(line)) {
                 matchedLines.add(line);
             }
         }
 
-       // Write matchedLines to outfile
-       writeToFile(matchedLines);
+        // Write matchedLines to outfile
+        writeToFile(matchedLines);
     }
 
     @Override
@@ -61,7 +59,23 @@ public class JavaGrepImpl implements JavaGrep {
 
     @Override
     public List<String> readLines(File inputFile) {
-        return null;
+        List<String> lines = new ArrayList<String>();
+
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+            String line = reader.readLine();
+            while (line != null) {
+                lines.add(line);
+                line = reader.readLine();
+            }
+            reader.close();
+        } catch (FileNotFoundException ex) {
+            logger.error("Error - File not found: ", ex);
+        } catch (IOException ex) {
+            logger.error("Error - Couldn't read file: ", ex);
+        }
+
+        return lines;
     }
 
     @Override
