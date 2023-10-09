@@ -1,2 +1,4 @@
-.idea
+.*
 /target
+dependency-reduced-pom.xml
+grep_out.txt

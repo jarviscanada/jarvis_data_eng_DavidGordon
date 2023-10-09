@@ -4,12 +4,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.regex.Pattern;
+import java.util.stream.Stream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Stream;
 
 public class JavaGrepImpl implements JavaGrep {
     final Logger logger = LoggerFactory.getLogger(JavaGrep.class);
@@ -30,7 +31,7 @@ public class JavaGrepImpl implements JavaGrep {
         List<String> lines = new ArrayList<String>();
 
         for (File f : files) {
-            lines = readLines(f);
+            if(f.isFile()) lines.addAll(readLines(f));
         }
 
         for (String line : lines) {
@@ -80,12 +81,22 @@ public class JavaGrepImpl implements JavaGrep {
 
     @Override
     public boolean containsPattern(String line) {
-        return false;
+        Pattern pattern = Pattern.compile(this.regex, Pattern.CASE_INSENSITIVE);
+        return pattern.matcher(line).find();
     }
 
     @Override
     public void writeToFile(List<String> lines) throws IOException {
+        try {
+            FileWriter writer = new FileWriter(this.outFile);
 
+            for(String line : lines) {
+                writer.write(line + "\n");
+            }
+            writer.close();
+        } catch(IOException ex) {
+            logger.error("Error - Couldn't write to file: ", ex);
+        }
     }
 
     @Override
