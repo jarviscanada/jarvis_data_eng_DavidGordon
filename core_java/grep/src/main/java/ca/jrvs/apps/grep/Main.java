@@ -8,12 +8,15 @@ public class Main {
             throw new IllegalArgumentException("USAGE: JavaGrep regex rootPath outFile");
         }
 
-        JavaGrepImpl javaGrep = new JavaGrepImpl(args[0], args[1], args[2]);
+        //JavaGrepImpl javaGrep = new JavaGrepImpl(args[0], args[1], args[2]);
+        JavaGrepLambdaImp javaGrepLambda = new JavaGrepLambdaImp(args[0], args[1], args[2]);
 
         try {
-            javaGrep.process();
+            javaGrepLambda.process();
         } catch (IOException ex) {
-            javaGrep.logger.error("Error - Unable to process: ", ex);
+            javaGrepLambda.logger.error("Error - Unable to process: ", ex);
         }
+
+
     }
 }
