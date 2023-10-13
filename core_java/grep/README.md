@@ -1,5 +1,6 @@
 # Introduction
-Discuss the design of each app. What does the app do? What technologies have you used? (e.g. core java, libraries, lambda, IDE, docker, etc..)
+The Grep app is a small Java applications that takes advantage of the Java 8 Stream API, and regex pattern matching to search for specific patterns in files withing a given directory.
+The use of Lambda expressions for filtering data makes the underlying code more expressive, and therefore easier to understand. The app uses SLF4J to log any errors to the User, and allows the User to provide an out file where all matches will be written. The Grep app was also Dockerized for easier distribution.
 
 # Quick Start
 To get started with the grep app, run the following command 
