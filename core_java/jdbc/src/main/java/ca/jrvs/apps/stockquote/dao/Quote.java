@@ -3,8 +3,8 @@ package ca.jrvs.apps.stockquote.dao;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.sql.Date;
 import java.sql.Timestamp;
-import java.util.Date;
 
 public class Quote {
     @JsonIgnore
