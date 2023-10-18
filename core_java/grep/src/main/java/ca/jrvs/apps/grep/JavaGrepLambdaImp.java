@@ -58,6 +58,8 @@ public class JavaGrepLambdaImp extends JavaGrepImpl {
     @Override
     public void writeToFile(List<String> lines) throws IOException {
         Stream<String> stream = lines.stream();
+        // Stream doesn't implement Iterable<T>, so we need to convert it to an Iterable
+        // See https://stackoverflow.com/questions/20129762/why-does-streamt-not-implement-iterablet/20130475#20130475
         Files.write(Paths.get(getOutFile()), (Iterable<String>)stream::iterator);
     }
 }
