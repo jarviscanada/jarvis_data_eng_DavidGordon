@@ -88,16 +88,16 @@ public class Customer implements DataTransferObject {
 
     @Override
     public String toString() {
-        return "Customer {" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", address='" + address + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", zipcode='" + zipcode + '\'' +
+        return "Customer {" + '\n' +
+                "id=" + id + ",\n" +
+                "firstName=" + firstName + ",\n" +
+                "lastName=" + lastName + ",\n" +
+                "email=" + email + ",\n" +
+                "phone=" + phone + ",\n" +
+                "address=" + address + ",\n" +
+                "city=" + city + ",\n" +
+                "state=" + state + ",\n" +
+                "zipcode=" + zipcode + ",\n" +
                 '}';
     }
 }

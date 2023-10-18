@@ -12,19 +12,19 @@ public abstract class DataAccessObject <T extends DataTransferObject> {
     protected final static String CUSTOMER_SEQUENCE = "hp_customer_seq";
 
     public DataAccessObject(Connection connection) {
-        super();
         this.connection = connection;
     }
 
     public abstract T findById(long id);
     public abstract List<T> findAll();
+    public abstract T findByEmail(String email);
     public abstract T create(T dto);
     public abstract T update(T dto);
     public abstract void delete(long id);
 
-    protected int getLastVal(String sequence) {
+    protected int getLastVal() {
         int key = 0;
-        String sql = LAST_VAL + sequence;
+        String sql = LAST_VAL + DataAccessObject.CUSTOMER_SEQUENCE;
 
         try(Statement statement = connection.createStatement()) {
             ResultSet resultSet = statement.executeQuery(sql);
