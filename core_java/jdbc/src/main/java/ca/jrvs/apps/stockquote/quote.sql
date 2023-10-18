@@ -1,0 +1,15 @@
+CREATE TABLE quote (
+    id INT NOT NULL,
+    symbol VARCHAR(255) NOT NULL,
+    open DOUBLE PRECISION NOT NULL,
+    high DOUBLE PRECISION NOT NULL,
+    low DOUBLE PRECISION NOT NULL,
+    price DOUBLE PRECISION NOT NULL,
+    volume INT NOT NULL,
+    latest_trading_day TIMESTAMP NOT NULL,
+    previous_close DOUBLE PRECISION NOT NULL,
+    change DOUBLE PRECISION NOT NULL,
+    change_percent VARCHAR(255) NOT NULL,
+    timestamp TIMESTAMP NOT NULL,
+    PRIMARY KEY(id)
+)
