@@ -1,3 +1,4 @@
 .idea
-target
-scripts
+target/
+/scripts/
+/dependency-reduced-pom.xml
