@@ -22,4 +22,3 @@ public class JDBCExecutor {
             e.printStackTrace();
         }
     }
-}
