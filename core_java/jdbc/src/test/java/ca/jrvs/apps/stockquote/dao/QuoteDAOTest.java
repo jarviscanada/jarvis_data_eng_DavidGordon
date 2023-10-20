@@ -24,7 +24,7 @@ public class QuoteDAOTest {
             throw new RuntimeException(e);
         }
 
-        QuoteDAO<Position, Integer> quoteDAO = new QuoteDAO<>(connection);
+        QuoteDAO<Quote, Integer> quoteDAO = new QuoteDAO<>(connection);
         quoteDAO.deleteAll();
     }
     @Test
