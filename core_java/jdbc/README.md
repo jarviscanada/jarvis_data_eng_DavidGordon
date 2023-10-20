@@ -1,6 +1,6 @@
 # Introduction
 (50-100 words)
-What does this app do? What technoglies your have used? (JDBC, PSQL, MVN, etc..)
+What does this app do? What technologies your have used? (JDBC, PSQL, MVN, etc..)
 
 # Implementaiton
 ## ER Diagram
