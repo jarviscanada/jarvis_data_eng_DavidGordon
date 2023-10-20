@@ -13,7 +13,7 @@ public class QuoteHttpHelperTest {
     @Test
     public void fetchQuoteInfoTest() {
         // Arrange
-        QuoteHttpHelper quoteHttpHelper = new QuoteHttpHelper("92f1efc4f2msh7f3d1b2d831b3c6p16dd4djsn6d12127ac48c");
+        QuoteHttpHelper quoteHttpHelper = new QuoteHttpHelper("YOUR_API_KEY");
         String expectedSymbol = "AAPL";
 
         // Act
