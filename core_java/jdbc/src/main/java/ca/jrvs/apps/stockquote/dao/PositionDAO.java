@@ -15,9 +15,11 @@ public class PositionDAO<Position, Integer> implements CrudDao<Position, Integer
             "VALUES (?, ?, ?)";
 
     private static final String FIND_BY_ID = "SELECT * FROM position WHERE id = ?";
+    private static final String FIND_BY_SYMBOL = "SELECT * FROM position WHERE symbol = ?";
+
     private static final String FIND_ALL = "SELECT * FROM position";
     private static final String DELETE = "DELETE FROM position WHERE id = ?";
-    private static final String DELETE_ALL = "TRUNCATE TABLE position";
+    private static final String DELETE_ALL = "TRUNCATE TABLE position CASCADE";
     public PositionDAO(Connection connection) {
         this.connection = connection;
     }
@@ -52,6 +54,31 @@ public class PositionDAO<Position, Integer> implements CrudDao<Position, Integer
 
         try (PreparedStatement statement = this.connection.prepareStatement(FIND_BY_ID)) {
             statement.setInt(1, (java.lang.Integer) integer);
+            ResultSet resultSet = statement.executeQuery();
+
+            while(resultSet.next()) {
+                position.setId(resultSet.getInt(1));
+                position.setSymbol(resultSet.getString(2));
+                position.setNumOfShares(resultSet.getInt(3));
+                position.setValuePaid(resultSet.getDouble(4));
+            }
+
+            return Optional.of((Position)position);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    public Optional<Position> findBySymbol(String symbol) throws IllegalArgumentException {
+        if(symbol == null) {
+            throw new IllegalArgumentException();
+        }
+
+        ca.jrvs.apps.stockquote.dao.Position position = new ca.jrvs.apps.stockquote.dao.Position();
+
+        try (PreparedStatement statement = this.connection.prepareStatement(FIND_BY_SYMBOL)) {
+            statement.setString(1, symbol);
             ResultSet resultSet = statement.executeQuery();
 
             while(resultSet.next()) {

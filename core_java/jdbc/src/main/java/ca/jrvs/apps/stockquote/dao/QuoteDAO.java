@@ -15,9 +15,10 @@ public class QuoteDAO<Quote, Integer> implements CrudDao<Quote, Integer> {
             "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     private static final String FIND_BY_ID = "SELECT * FROM quote WHERE id = ?";
+    private static final String FIND_BY_SYMBOL = "SELECT * FROM quote WHERE symbol = ?";
     private static final String FIND_ALL = "SELECT * FROM quote";
     private static final String DELETE = "DELETE FROM quote WHERE id = ?";
-    private static final String DELETE_ALL = "TRUNCATE TABLE quote";
+    private static final String DELETE_ALL = "TRUNCATE TABLE quote CASCADE";
 
     public QuoteDAO(Connection connection) {
         this.connection = connection;
@@ -62,6 +63,39 @@ public class QuoteDAO<Quote, Integer> implements CrudDao<Quote, Integer> {
 
         try (PreparedStatement statement = this.connection.prepareStatement(FIND_BY_ID)) {
             statement.setInt(1, (java.lang.Integer) integer);
+            ResultSet resultSet = statement.executeQuery();
+
+            while(resultSet.next()) {
+                quote.setId(resultSet.getInt(1));
+                quote.setSymbol(resultSet.getString(2));
+                quote.setOpen(resultSet.getDouble(3));
+                quote.setHigh(resultSet.getDouble(4));
+                quote.setLow(resultSet.getDouble(5));
+                quote.setPrice(resultSet.getDouble(6));
+                quote.setVolume(resultSet.getInt(7));
+                quote.setLatestTradingDay(resultSet.getDate(8));
+                quote.setPreviousClose(resultSet.getDouble(9));
+                quote.setChange(resultSet.getDouble(10));
+                quote.setChangePercent(resultSet.getString(11));
+                quote.setTimestamp(resultSet.getTimestamp(12));
+            }
+
+            return Optional.of((Quote)quote);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    public Optional<Quote> findBySymbol(String symbol) throws IllegalArgumentException {
+        if(symbol == null) {
+            throw new IllegalArgumentException();
+        }
+
+        ca.jrvs.apps.stockquote.dao.Quote quote = new ca.jrvs.apps.stockquote.dao.Quote();
+
+        try (PreparedStatement statement = this.connection.prepareStatement(FIND_BY_SYMBOL)) {
+            statement.setString(1, symbol);
             ResultSet resultSet = statement.executeQuery();
 
             while(resultSet.next()) {

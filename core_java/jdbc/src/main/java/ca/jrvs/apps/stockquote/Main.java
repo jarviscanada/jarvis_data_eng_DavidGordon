@@ -13,23 +13,6 @@ import java.time.Instant;
 
 public class Main {
     public static void main(String[] args) {
-        QuoteHttpHelper quoteHttpHelper = new QuoteHttpHelper("YOUR_API_KEY");
-        DatabaseConnectionManager dcm = new DatabaseConnectionManager("localhost", "postgres",
-                "postgres", "password");
 
-        try {
-            Connection connection = dcm.getConnection();
-            QuoteDAO<Quote, Integer> quoteDAO = new QuoteDAO<Quote, Integer>(connection);
-            /*
-            Quote quote = quoteHttpHelper.fetchQuoteInfo("AAPL");
-            quote.setTimestamp(Timestamp.from(Instant.now()));
-            quoteDAO.save(quote);
-             */
-            Quote quote = quoteDAO.findById(1).get();
-            System.out.println(quote.getSymbol());
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
     }
 }
