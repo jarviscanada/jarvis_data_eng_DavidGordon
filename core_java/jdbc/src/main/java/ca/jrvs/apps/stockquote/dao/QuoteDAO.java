@@ -1,10 +1,12 @@
 package ca.jrvs.apps.stockquote.dao;
 
-import javax.xml.transform.Result;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Optional;
 import java.util.List;
+import java.util.Optional;
 
 public class QuoteDAO<Quote, Integer> implements CrudDao<Quote, Integer> {
     protected final Connection connection;
@@ -114,13 +116,13 @@ public class QuoteDAO<Quote, Integer> implements CrudDao<Quote, Integer> {
     }
 
     @Override
-    public void deleteById(Object o) throws IllegalArgumentException {
-        if(o == null) {
+    public void deleteById(Integer integer) throws IllegalArgumentException {
+        if(integer == null) {
             throw new IllegalArgumentException();
         }
 
         try (PreparedStatement statement = this.connection.prepareStatement(DELETE)) {
-            statement.setInt(1, (int)o);
+            statement.setInt(1, (int)integer);
             statement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
