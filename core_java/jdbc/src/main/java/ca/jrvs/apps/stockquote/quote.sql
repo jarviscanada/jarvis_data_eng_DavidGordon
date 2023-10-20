@@ -1,15 +1,24 @@
+DROP TABLE IF EXISTS quote;
 CREATE TABLE quote (
-    id INT GENERATED ALWAYS AS IDENTITY,
-    symbol VARCHAR(255) NOT NULL,
-    open DOUBLE PRECISION NOT NULL,
-    high DOUBLE PRECISION NOT NULL,
-    low DOUBLE PRECISION NOT NULL,
-    price DOUBLE PRECISION NOT NULL,
-    volume INT NOT NULL,
-    latest_trading_day TIMESTAMP NOT NULL,
-    previous_close DOUBLE PRECISION NOT NULL,
-    change DOUBLE PRECISION NOT NULL,
-    change_percent VARCHAR(255) NOT NULL,
-    timestamp TIMESTAMP NOT NULL,
-    PRIMARY KEY(id)
-)
+    id                  SERIAL PRIMARY KEY,
+    symbol              VARCHAR(10) NOT NULL,
+    open                DECIMAL(10, 2) NOT NULL,
+    high                DECIMAL(10, 2) NOT NULL,
+    low                 DECIMAL(10, 2) NOT NULL,
+    price               DECIMAL(10, 2) NOT NULL,
+    volume              INT NOT NULL,
+    latest_trading_day  DATE NOT NULL,
+    previous_close      DECIMAL(10, 2) NOT NULL,
+    change              DECIMAL(10, 2) NOT NULL,
+    change_percent      VARCHAR(10) NOT NULL,
+    timestamp           TIMESTAMP DEFAULT CURRENT_TIMESTAMP  NOT NULL,
+    CONSTRAINT q_un 		UNIQUE (symbol)
+);
+DROP TABLE IF EXISTS position;
+CREATE TABLE position (
+    id                    SERIAL PRIMARY KEY,
+    symbol                VARCHAR(10) NOT NULL,
+    number_of_shares      INT NOT NULL,
+    value_paid            DECIMAL(10, 2) NOT NULL,
+    CONSTRAINT symbol_fk	FOREIGN KEY (symbol) REFERENCES quote(symbol)
+);
