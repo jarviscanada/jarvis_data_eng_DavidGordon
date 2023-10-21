@@ -19,4 +19,8 @@ public class StockQuoteController {
     public void sellStocks() {
 
     }
+
+    public void buyStocks() {
+        
+    }
 }
