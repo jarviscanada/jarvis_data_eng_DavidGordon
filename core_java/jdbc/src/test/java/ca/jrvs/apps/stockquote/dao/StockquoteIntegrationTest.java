@@ -3,10 +3,15 @@ package ca.jrvs.apps.stockquote.dao;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.*;
+import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 import static org.junit.Assert.*;
@@ -15,8 +20,7 @@ public class StockquoteIntegrationTest {
     private static Connection connection;
     @Before
     public void setUp() throws Exception {
-        DatabaseConnectionManager dcm = new DatabaseConnectionManager("localhost", "postgres",
-                "postgres", "password");
+        DatabaseConnectionManager dcm = new DatabaseConnectionManager();
 
         connection = dcm.getConnection();
 
@@ -30,9 +34,27 @@ public class StockquoteIntegrationTest {
     @Test
     public void testQuoteApp() {
         // Test will call QuoteHttpHelper to receive a quote from the API
+        String apiKey = "";
+        String[] properties = new String[7];
+        try {
+            File propertiesFile = Paths.get(Objects.requireNonNull(
+                    getClass().getClassLoader().getResource("properties.txt")).toURI()).toFile();
+
+            Reader reader = new FileReader(propertiesFile.getAbsolutePath());
+            BufferedReader bufferedReader = new BufferedReader(reader);
+            int i = 0;
+            while(i < 7) {
+                properties[i] = bufferedReader.readLine().split(":")[1];
+                i++;
+            }
+            apiKey = properties[6];
+        } catch (URISyntaxException | IOException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
 
         // Create a QuoteHttpHelper and fetch a quote
-        QuoteHttpHelper quoteHttpHelper = new QuoteHttpHelper("YOUR_API_KEY");
+        QuoteHttpHelper quoteHttpHelper = new QuoteHttpHelper(apiKey);
         Quote quote = quoteHttpHelper.fetchQuoteInfo("AAPL");
 
         // Save the quote

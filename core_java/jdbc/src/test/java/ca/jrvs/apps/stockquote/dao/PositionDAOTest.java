@@ -12,10 +12,10 @@ import java.util.Optional;
 import static org.junit.Assert.*;
 
 public class PositionDAOTest {
-    @Before
-    public void setUp() throws Exception {
-        DatabaseConnectionManager dcm = new DatabaseConnectionManager("localhost", "postgres",
-                "postgres", "password");
+    @Test
+    public void save() {
+        // Arrange
+        DatabaseConnectionManager dcm = new DatabaseConnectionManager();
         Connection connection = null;
 
         try {
@@ -27,24 +27,8 @@ public class PositionDAOTest {
 
         PositionDAO<Position, Integer> positionDAO = new PositionDAO<>(connection);
         positionDAO.deleteAll();
-    }
-    @Test
-    public void save() {
-        // Arrange
-        DatabaseConnectionManager dcm = new DatabaseConnectionManager("localhost", "postgres",
-                "postgres", "password");
-        Connection connection = null;
 
-        try {
-            connection = dcm.getConnection();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
-        }
-
-        PositionDAO<Position, Integer> positionDAO = new PositionDAO<>(connection);
         Position position = new Position();
-
         position.setSymbol("AAPL");
         position.setNumOfShares(47);
         position.setValuePaid(1027.44);
@@ -76,8 +60,7 @@ public class PositionDAOTest {
     @Test
     public void findBySymbol() {
         // Arrange
-        DatabaseConnectionManager dcm = new DatabaseConnectionManager("localhost", "postgres",
-                "postgres", "password");
+        DatabaseConnectionManager dcm = new DatabaseConnectionManager();
         Connection connection = null;
 
         try {
