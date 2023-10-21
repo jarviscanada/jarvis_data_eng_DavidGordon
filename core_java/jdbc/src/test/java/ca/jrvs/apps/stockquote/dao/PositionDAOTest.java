@@ -34,6 +34,8 @@ public class PositionDAOTest {
         position.setValuePaid(1027.44);
 
         QuoteDAO<Quote, Integer> quoteDAO = new QuoteDAO<>(connection);
+        quoteDAO.deleteAll();
+
         Quote quote = new Quote();
 
         quote.setSymbol("AAPL");
