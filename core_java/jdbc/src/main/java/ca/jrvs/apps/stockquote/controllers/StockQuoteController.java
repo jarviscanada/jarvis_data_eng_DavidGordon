@@ -1,5 +1,6 @@
 package ca.jrvs.apps.stockquote.controllers;
 
+import ca.jrvs.apps.stockquote.dao.Position;
 import ca.jrvs.apps.stockquote.dao.Quote;
 import ca.jrvs.apps.stockquote.services.PositionService;
 import ca.jrvs.apps.stockquote.services.QuoteService;
@@ -16,11 +17,15 @@ public class StockQuoteController {
         positionService = new PositionService();
     }
 
-    public void sellStocks() {
-
+    public Quote getQuote(String symbol) {
+        return null;
     }
 
-    public void buyStocks() {
-        
+    public Position buyPosition() {
+        return null;
+    }
+
+    public void sellPosition() {
+
     }
 }
