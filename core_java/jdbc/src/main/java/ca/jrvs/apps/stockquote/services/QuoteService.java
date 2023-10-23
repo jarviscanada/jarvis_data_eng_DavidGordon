@@ -8,23 +8,12 @@ import java.sql.SQLException;
 import java.util.Optional;
 
 public class QuoteService {
-    private Connection connection;
-    private QuoteDAO quoteDAO;
-    private QuoteHttpHelper httpHelper;
+    private final QuoteDAO<Quote, Integer> quoteDAO;
+    private final QuoteHttpHelper quoteHttpHelper;
 
-    public QuoteService() {
-        String[] properties = PropertiesHelper.getProperties();
-        DatabaseConnectionManager dcm = new DatabaseConnectionManager();
-
-        try {
-            connection = dcm.getConnection();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
-        }
-
+    public QuoteService(Connection connection, String apiKey) {
         quoteDAO = new QuoteDAO<Quote, Integer>(connection);
-        httpHelper = new QuoteHttpHelper(properties[6]);
+        quoteHttpHelper = new QuoteHttpHelper(apiKey);
     }
 
     /**
@@ -33,6 +22,6 @@ public class QuoteService {
      * @return Latest quote information or empty optional if symbol not found
      */
     public Optional<Quote> fetchQuoteDataFromAPI(String symbol) {
-        return null;
+        return Optional.ofNullable(quoteHttpHelper.fetchQuoteInfo(symbol));
     }
 }

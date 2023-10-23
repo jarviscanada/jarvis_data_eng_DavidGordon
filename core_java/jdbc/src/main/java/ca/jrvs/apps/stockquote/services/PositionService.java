@@ -8,19 +8,9 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 public class PositionService {
-    private Connection connection;
-    private PositionDAO positionDAO;
+    private final PositionDAO<Position, Integer> positionDAO;
 
-    public PositionService() {
-        DatabaseConnectionManager dcm = new DatabaseConnectionManager();
-
-        try {
-            connection = dcm.getConnection();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
-        }
-
+    public PositionService(Connection connection) {
         positionDAO = new PositionDAO<Position, Integer>(connection);
     }
 

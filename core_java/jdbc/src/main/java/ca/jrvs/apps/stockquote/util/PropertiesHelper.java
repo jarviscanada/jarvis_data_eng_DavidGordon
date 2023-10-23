@@ -10,11 +10,7 @@ public class PropertiesHelper {
         String[] properties = new String[7];
 
         try {
-            File propertiesFile = Paths.get(Objects.requireNonNull(
-                    PropertiesHelper.class.getClassLoader().getResource("properties.txt")).toURI()).toFile();
-
-            Reader reader = new FileReader(propertiesFile.getAbsolutePath());
-            BufferedReader bufferedReader = new BufferedReader(reader);
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("src/main/resources/properties.txt"));
 
             int i = 0;
             while(i < 7) {
@@ -24,7 +20,7 @@ public class PropertiesHelper {
             }
 
             return properties;
-        } catch (URISyntaxException | IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
             throw new RuntimeException(e);
         }
