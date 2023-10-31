@@ -1,18 +1,20 @@
 package ca.jrvs.apps.stockquote.dao;
 
 import ca.jrvs.apps.stockquote.util.PropertiesHelper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Paths;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.Date;
 import java.util.Objects;
 import java.util.Properties;
 
 public class DatabaseConnectionManager {
+    final Logger logger = LoggerFactory.getLogger(DatabaseConnectionManager.class);
     private final String connectionString;
     private final Properties properties;
 
@@ -26,6 +28,7 @@ public class DatabaseConnectionManager {
     }
 
     public Connection getConnection() throws SQLException {
+        logger.info(new Timestamp(new Date().getTime()) + ": New database connection");
         return DriverManager.getConnection(this.connectionString, this.properties);
     }
 }

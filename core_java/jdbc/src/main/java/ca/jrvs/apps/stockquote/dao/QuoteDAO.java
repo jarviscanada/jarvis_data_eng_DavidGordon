@@ -1,14 +1,17 @@
 package ca.jrvs.apps.stockquote.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.simple.SimpleLoggerFactory;
+
+import java.sql.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 public class QuoteDAO<Quote, Integer> implements CrudDao<Quote, Integer> {
+    final Logger logger = LoggerFactory.getLogger(QuoteDAO.class);
     protected final Connection connection;
     private static final String SAVE = "INSERT INTO quote " +
             "(symbol, open, high, low, price, volume, latest_trading_day, previous_close, change, change_percent, timestamp) " +
@@ -27,6 +30,7 @@ public class QuoteDAO<Quote, Integer> implements CrudDao<Quote, Integer> {
     @Override
     public Quote save(Quote entity) throws IllegalArgumentException {
         if(entity == null) {
+            logger.error("Provided quote was null");
             throw new IllegalArgumentException();
         }
 
@@ -43,12 +47,12 @@ public class QuoteDAO<Quote, Integer> implements CrudDao<Quote, Integer> {
             statement.setDouble(8, quote.getPreviousClose());
             statement.setDouble(9, quote.getChange());
             statement.setString(10, quote.getChangePercent());
-            statement.setTimestamp(11, quote.getTimestamp());
+            statement.setTimestamp(11, new Timestamp(new Date().getTime()));
             statement.execute();
 
             return entity;
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("There was an error saving the quote - " + e);
             throw new RuntimeException(e);
         }
     }
@@ -56,7 +60,7 @@ public class QuoteDAO<Quote, Integer> implements CrudDao<Quote, Integer> {
     @Override
     public Optional<Quote> findById(Integer integer) throws IllegalArgumentException {
         if(integer == null) {
-            throw new IllegalArgumentException();
+            logger.error("Provided quote was null");
         }
 
         ca.jrvs.apps.stockquote.dao.Quote quote = new ca.jrvs.apps.stockquote.dao.Quote();
@@ -82,14 +86,14 @@ public class QuoteDAO<Quote, Integer> implements CrudDao<Quote, Integer> {
 
             return Optional.of((Quote)quote);
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("There was an error querying the database - " + e);
             throw new RuntimeException(e);
         }
     }
 
     public Optional<Quote> findBySymbol(String symbol) throws IllegalArgumentException {
         if(symbol == null) {
-            throw new IllegalArgumentException();
+            logger.error("Provided quote was null");
         }
 
         ca.jrvs.apps.stockquote.dao.Quote quote = new ca.jrvs.apps.stockquote.dao.Quote();
@@ -115,7 +119,7 @@ public class QuoteDAO<Quote, Integer> implements CrudDao<Quote, Integer> {
 
             return Optional.of((Quote)quote);
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("There was an error querying the database - " + e);
             throw new RuntimeException(e);
         }
     }
@@ -144,7 +148,7 @@ public class QuoteDAO<Quote, Integer> implements CrudDao<Quote, Integer> {
 
             return quotes;
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("There was an error querying the database - " + e);
             throw new RuntimeException(e);
         }
     }
@@ -152,14 +156,14 @@ public class QuoteDAO<Quote, Integer> implements CrudDao<Quote, Integer> {
     @Override
     public void deleteById(Integer integer) throws IllegalArgumentException {
         if(integer == null) {
-            throw new IllegalArgumentException();
+            logger.error("Provided quote was null");
         }
 
         try (PreparedStatement statement = this.connection.prepareStatement(DELETE)) {
             statement.setInt(1, (int)integer);
             statement.execute();
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("There was an error querying the database - " + e);
             throw new RuntimeException(e);
         }
     }

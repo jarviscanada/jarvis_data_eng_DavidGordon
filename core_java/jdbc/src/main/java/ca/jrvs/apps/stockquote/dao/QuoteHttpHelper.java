@@ -8,12 +8,17 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.Reader;
 import java.nio.file.Paths;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Map;
 
 public class QuoteHttpHelper {
+    final Logger logger = LoggerFactory.getLogger(QuoteHttpHelper.class);
     private final String apiKey;
     private OkHttpClient client;
 
@@ -47,7 +52,7 @@ public class QuoteHttpHelper {
 
             return mapper.convertValue(map.get("Global Quote"), Quote.class);
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.info("Couldn't reach Alpha-Vantage API - " + e);
             throw new RuntimeException(e);
         }
     }

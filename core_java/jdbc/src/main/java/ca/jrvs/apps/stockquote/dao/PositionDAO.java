@@ -1,5 +1,8 @@
 package ca.jrvs.apps.stockquote.dao;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,6 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class PositionDAO<Position, Integer> implements CrudDao<Position, Integer> {
+    final Logger logger = LoggerFactory.getLogger(PositionDAO.class);
     protected final Connection connection;
     private static final String SAVE = "INSERT INTO position " +
             "(symbol, number_of_shares, value_paid) " +
@@ -26,6 +30,7 @@ public class PositionDAO<Position, Integer> implements CrudDao<Position, Integer
     @Override
     public Position save(Position entity) throws IllegalArgumentException {
         if(entity == null) {
+            logger.error("Provided position was null");
             throw new IllegalArgumentException();
         }
 
@@ -39,7 +44,7 @@ public class PositionDAO<Position, Integer> implements CrudDao<Position, Integer
 
             return entity;
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("There was an error saving the position - " + e);
             throw new RuntimeException(e);
         }
     }
@@ -47,6 +52,7 @@ public class PositionDAO<Position, Integer> implements CrudDao<Position, Integer
     @Override
     public Optional<Position> findById(Integer integer) throws IllegalArgumentException {
         if(integer == null) {
+            logger.error("Provided id was null");
             throw new IllegalArgumentException();
         }
 
@@ -65,13 +71,14 @@ public class PositionDAO<Position, Integer> implements CrudDao<Position, Integer
 
             return Optional.of((Position)position);
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("There was an error querying the database - " + e);
             throw new RuntimeException(e);
         }
     }
 
     public Optional<Position> findBySymbol(String symbol) throws IllegalArgumentException {
         if(symbol == null) {
+            logger.error("Provided symbol was null");
             throw new IllegalArgumentException();
         }
 
@@ -90,7 +97,7 @@ public class PositionDAO<Position, Integer> implements CrudDao<Position, Integer
 
             return Optional.of((Position)position);
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("There was an error querying the database - " + e);
             throw new RuntimeException(e);
         }
     }
@@ -111,7 +118,7 @@ public class PositionDAO<Position, Integer> implements CrudDao<Position, Integer
             }
             return positions;
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("There was an error querying the database - " + e);
             throw new RuntimeException(e);
         }
     }
@@ -119,6 +126,7 @@ public class PositionDAO<Position, Integer> implements CrudDao<Position, Integer
     @Override
     public void deleteById(Integer integer) throws IllegalArgumentException {
             if(integer == null) {
+                logger.error("Provided id was null");
                 throw new IllegalArgumentException();
             }
 
@@ -126,7 +134,7 @@ public class PositionDAO<Position, Integer> implements CrudDao<Position, Integer
                 statement.setInt(1, (int)integer);
                 statement.execute();
             } catch (SQLException e) {
-                e.printStackTrace();
+                logger.error("There was an error querying the database - " + e);
                 throw new RuntimeException(e);
             }
     }
@@ -136,7 +144,7 @@ public class PositionDAO<Position, Integer> implements CrudDao<Position, Integer
         try (PreparedStatement statement = this.connection.prepareStatement(DELETE_ALL)) {
             statement.execute();
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("There was an error querying the database - " + e);
             throw new RuntimeException(e);
         }
     }
