@@ -13,7 +13,12 @@
     </Appenders>
 
     <Loggers>
-        <!-- Insert your loggers here -->
+        <Root level="error">
+            <AppenderRef ref="errors" />
+        </Root>
+        <Logger name="ca.jrvs.apps" level="info" additivity="false">
+            <AppenderRef ref="operation" />
+        </Logger>
     </Loggers>
 
 </Configuration>

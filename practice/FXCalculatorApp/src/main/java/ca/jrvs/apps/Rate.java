@@ -1,14 +1,25 @@
 package ca.jrvs.apps;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.sql.Date;
 
 public class Rate {
+    @JsonIgnore
     private Date date;
+    @JsonIgnore
     private String fromSymbol;
+    @JsonIgnore
     private String toSymbol;
+
+    @JsonProperty("1. open")
     private double open;
+    @JsonProperty("2. high")
     private double high;
+    @JsonProperty("3. low")
     private double low;
+    @JsonProperty("4. close")
     private double close;
 
     public Date getDate() {
