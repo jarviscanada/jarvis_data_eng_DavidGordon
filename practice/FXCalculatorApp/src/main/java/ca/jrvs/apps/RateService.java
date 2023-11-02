@@ -19,6 +19,7 @@ public class RateService {
 
     public double calculateExchange(String fromSymbol, String toSymbol, Date date, double amount) {
         logger.info("Calculating exchange");
+
         Optional<Rate> databaseRate = repo.getRate(date, fromSymbol, toSymbol);
         if(databaseRate.isPresent()) {
             Rate rate = databaseRate.get();
@@ -27,6 +28,7 @@ public class RateService {
 
         Optional<Rate> apiRate = http.fetchRate(fromSymbol, toSymbol, String.valueOf(date));
         if(apiRate.isPresent()) {
+            // If the database didn't return a rate, we need to save a new one from the API
             Rate rate = apiRate.get();
             return rate.getClose() * amount;
         }

@@ -14,7 +14,6 @@ public class Main {
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) {
-        logger.error("error");
         logger.info("Application starting");
         if(args.length != 4) {
             System.out.println("USAGE: java FxCalculator.jar FROM_CODE TO_CODE DATE AMOUNT");
@@ -45,6 +44,7 @@ public class Main {
         } catch (SQLException e) {
             logger.error("Could not process exchange: " + e);
         }
-    }
 
+        logger.error("Program has finished");
+    }
 }

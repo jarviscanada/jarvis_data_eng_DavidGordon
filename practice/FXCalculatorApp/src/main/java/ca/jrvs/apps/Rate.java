@@ -1,10 +1,12 @@
 package ca.jrvs.apps;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.sql.Date;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Rate {
     @JsonIgnore
     private Date date;

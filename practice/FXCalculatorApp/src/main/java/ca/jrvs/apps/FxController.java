@@ -16,17 +16,18 @@ public class FxController {
     }
 
     public void processExchange(String fromCode, String toCode, String date, String amount) {
-        // get the exchange rate of our FromCode (CAD) to our ToCode (USD) and print it
-        // compare the closing prices of each rate
-
-        // first we need to see if both codes are valid
         if(!currService.isValidCode(fromCode) || !currService.isValidCode(toCode)) {
             logger.error("Invalid codes provided in FxController");
             return;
         }
 
+        // the date needs to be and amount also need to be validated
+        // todo
+
         // then we need to calculate the exchange with our codes
         double exchange = rateService.calculateExchange(fromCode, toCode, Date.valueOf(date), Double.parseDouble(amount));
+
+        // we should check if exchange is valid here before printing
         System.out.println("Your exchange is " + exchange);
     }
 

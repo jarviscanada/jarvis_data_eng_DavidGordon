@@ -43,12 +43,14 @@ public class RateHttpHelper {
             Response response = client.newCall(request).execute();
             ResponseBody responseBody = response.body();
 
-            Map<?,?> map = mapper.readValue(responseBody.string(), Map.class);
-            Map<?,?> dates = mapper.convertValue(map.get("Time Series FX (Daily)"), Map.class);
-            Rate rate = mapper.convertValue(dates.get(date), Rate.class);
+            Rate rate = mapper.readValue(mapper.readTree(responseBody.string())
+                    .get("Time Series FX (Daily)")
+                    .get(date).toString(), Rate.class);
+
             rate.setDate(Date.valueOf(date));
             rate.setFromSymbol(fromCode);
             rate.setToSymbol(toCode);
+
             return Optional.of(rate);
         } catch (IOException e) {
             logger.error("Couldn't reach AlphaVantage: " + e);
