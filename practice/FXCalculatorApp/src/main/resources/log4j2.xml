@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn">
+
+    <Appenders>
+        <File name="operation" fileName="operation.log" append="false">
+            <PatternLayout
+                    pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+        </File>
+        <File name="errors" fileName="errors.log" append="true">
+            <PatternLayout
+                    pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+        </File>
+    </Appenders>
+
+    <Loggers>
+        <Root level="error">
+            <AppenderRef ref="errors" />
+        </Root>
+        <Logger name="ca.jrvs.apps" level="info" additivity="false">
+            <AppenderRef ref="operation" />
+        </Logger>
+    </Loggers>
+
+</Configuration>
