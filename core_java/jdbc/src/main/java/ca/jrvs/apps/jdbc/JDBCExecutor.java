@@ -4,22 +4,63 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 public class JDBCExecutor {
-    public void createConnection() {
+
+    public Customer findCustomerById(long id) {
         DatabaseConnectionManager dcm = new DatabaseConnectionManager("localhost", "hplussport",
                 "postgres", "password");
 
         try {
             Connection connection = dcm.getConnection();
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT COUNT(*) FROM CUSTOMER");
-
-            while(resultSet.next()) {
-                System.out.println(resultSet.getInt(1));
-            }
+            CustomerDAO customerDAO = new CustomerDAO(connection);
+            return customerDAO.findById(id);
         } catch(SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
-}
+
+    public List<Customer> findAllCustomers() {
+        DatabaseConnectionManager dcm = new DatabaseConnectionManager("localhost", "hplussport",
+                "postgres", "password");
+
+        try {
+            Connection connection = dcm.getConnection();
+            CustomerDAO customerDAO = new CustomerDAO(connection);
+            return customerDAO.findAll();
+        } catch(SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    public Customer createCustomer(Customer customer) {
+        DatabaseConnectionManager dcm = new DatabaseConnectionManager("localhost", "hplussport",
+                "postgres", "password");
+
+        try {
+            Connection connection = dcm.getConnection();
+            CustomerDAO customerDAO = new CustomerDAO(connection);
+            return customerDAO.create(customer);
+        } catch(SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    public Customer updateCustomer(Customer customer) {
+        DatabaseConnectionManager dcm = new DatabaseConnectionManager("localhost", "hplussport",
+                "postgres", "password");
+
+        try {
+            Connection connection = dcm.getConnection();
+            CustomerDAO customerDAO = new CustomerDAO(connection);
+
+            return customerDAO.update(customer);
+        } catch(SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
