@@ -1,0 +1,7 @@
+server:localhost
+database:postgres
+username:postgres
+password:volvo
+port:5432
+db-class:org.postgresql.Driver
+api-key:92f1efc4f2msh7f3d1b2d831b3c6p16dd4djsn6d12127ac48c

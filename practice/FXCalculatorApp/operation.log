@@ -1,0 +1,17 @@
+2023-11-02 14:01:16.528 [main] INFO  ca.jrvs.apps.Main - Application starting
+2023-11-02 14:01:16.533 [main] INFO  ca.jrvs.apps.Main - Initializing postgres driver
+2023-11-02 14:01:16.823 [main] INFO  ca.jrvs.apps.util.DatabaseConnectionManager - 2023-11-02 14:01:16.823: New database connection
+2023-11-02 14:01:17.015 [main] INFO  ca.jrvs.apps.DailyRateRepo - Initializing DailyRateRepo
+2023-11-02 14:01:17.016 [main] INFO  ca.jrvs.apps.CurrencyRepo - Initializing CurrencyRepo
+2023-11-02 14:01:17.017 [main] INFO  ca.jrvs.apps.RateHttpHelper - Initializing RateHttpHelper
+2023-11-02 14:01:17.018 [main] INFO  ca.jrvs.apps.RateService - Initializing RateService
+2023-11-02 14:01:17.019 [main] INFO  ca.jrvs.apps.CurrencyService - Initializing CurrencyService
+2023-11-02 14:01:17.020 [main] INFO  ca.jrvs.apps.CurrencyService - Validating currency code
+2023-11-02 14:01:17.020 [main] INFO  ca.jrvs.apps.CurrencyRepo - Retrieving Currency from database
+2023-11-02 14:01:17.037 [main] INFO  ca.jrvs.apps.CurrencyService - Validating currency code
+2023-11-02 14:01:17.037 [main] INFO  ca.jrvs.apps.CurrencyRepo - Retrieving Currency from database
+2023-11-02 14:01:17.038 [main] INFO  ca.jrvs.apps.RateService - Calculating exchange
+2023-11-02 14:01:17.038 [main] INFO  ca.jrvs.apps.DailyRateRepo - Retrieving Rate from database
+2023-11-02 14:01:17.038 [main] INFO  ca.jrvs.apps.DailyRateRepo - Saving Rate to database
+2023-11-02 14:01:17.040 [main] INFO  ca.jrvs.apps.RateHttpHelper - Fetching rate from endpoint
+2023-11-02 14:01:18.079 [main] ERROR ca.jrvs.apps.Main - Program has finished
