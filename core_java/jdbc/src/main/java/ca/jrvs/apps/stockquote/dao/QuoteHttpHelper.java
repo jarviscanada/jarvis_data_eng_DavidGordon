@@ -1,20 +1,12 @@
 package ca.jrvs.apps.stockquote.dao;
 
-import ca.jrvs.apps.practice.dto.Company;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import okhttp3.ResponseBody;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.Reader;
-import java.nio.file.Paths;
-import java.sql.Timestamp;
-import java.util.Date;
 import java.util.Map;
 
 public class QuoteHttpHelper {
