@@ -47,7 +47,7 @@ function parseText(text) {
             count++;
         }
     }
-    return count
+    return count+1
 }
 
 function analyzeContent(stringToAnalyze) {
