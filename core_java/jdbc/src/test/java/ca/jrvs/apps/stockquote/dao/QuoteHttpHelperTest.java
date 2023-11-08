@@ -1,15 +1,10 @@
 package ca.jrvs.apps.stockquote.dao;
 
+import ca.jrvs.apps.stockquote.dao.Quote;
+import ca.jrvs.apps.stockquote.dao.QuoteHttpHelper;
 import ca.jrvs.apps.stockquote.util.PropertiesHelper;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.io.*;
-import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.List;
-import java.util.Objects;
 
 import static org.junit.Assert.*;
 public class QuoteHttpHelperTest {

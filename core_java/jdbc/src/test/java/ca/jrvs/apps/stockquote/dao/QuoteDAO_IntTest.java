@@ -4,20 +4,15 @@ import ca.jrvs.apps.stockquote.util.PropertiesHelper;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.*;
-import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.Instant;
-import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 import static org.junit.Assert.*;
 
-public class StockquoteIntegrationTest {
+public class QuoteDAO_IntTest {
     private static Connection connection;
     @Before
     public void setUp() throws Exception {
@@ -33,7 +28,44 @@ public class StockquoteIntegrationTest {
     }
 
     @Test
-    public void testQuoteApp() {
+    public void save() {
+        // Arrange
+        DatabaseConnectionManager dcm = new DatabaseConnectionManager();
+        Connection connection = null;
+
+        try {
+            connection = dcm.getConnection();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+
+        QuoteDAO<Quote, Integer> quoteDAO = new QuoteDAO<>(connection);
+        quoteDAO.deleteAll();
+
+        Quote quote = new Quote();
+        quote.setSymbol("AAPL");
+        quote.setOpen(47.34);
+        quote.setHigh(91.06);
+        quote.setLow(14.22);
+        quote.setPrice(51.11);
+        quote.setVolume(15);
+        quote.setLatestTradingDay(new java.sql.Date(System.currentTimeMillis()));
+        quote.setPreviousClose(34.13);
+        quote.setChange(quote.getOpen() - quote.getPreviousClose());
+        quote.setChangePercent(String.valueOf(quote.getChange() * 100));
+        quote.setTimestamp(Timestamp.from(Instant.now()));
+
+
+        // Act
+        Quote savedQuote = quoteDAO.save(quote);
+
+        // Assert
+        assertEquals(savedQuote, quote);
+    }
+
+    @Test
+    public void findBySymbol() {
         // Test will call QuoteHttpHelper to receive a quote from the API
         String[] properties  = PropertiesHelper.getProperties();
         String apiKey = properties[6];
@@ -53,18 +85,5 @@ public class StockquoteIntegrationTest {
         if(quoteOptional.isPresent()) {
             quote = quoteOptional.get();
         }
-
-        // Create a Position for AAPL stock
-        PositionDAO<Position, Integer> positionDAO = new PositionDAO<>(connection);
-        Position position = new Position();
-
-        position.setSymbol("AAPL");
-        position.setNumOfShares(47);
-        position.setValuePaid(1027.44);
-
-        Position savedPosition = positionDAO.save(position);
-
-        assertEquals(savedPosition.getSymbol(), "AAPL");
-        assertEquals(quote.getSymbol(), "AAPL");
     }
 }
