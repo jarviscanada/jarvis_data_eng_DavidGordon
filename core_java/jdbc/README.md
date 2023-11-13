@@ -1,5 +1,5 @@
 # Introduction
-The Stockquote app is a Java tool that enables users to buy and sell stock positions in real-time. The app uses a third-party API that returns stock market data in JSON format, which is then parsed into Java objects for processing. Itleverages modern libraries such as OkHttp for making HTTP requests and Jackson for efficiently parsing JSON data. Requests are stored in a PostgreSQL database running in a Docker container. The application contains numerous Unit and Integration tests to ensure program accuracy.
+The Stockquote app is a Java tool that enables users to buy and sell stock positions in real-time. The app uses a third-party API that returns stock market data in JSON format, which is then parsed into Java objects for processing. Itleverages modern libraries such as OkHttp for making HTTP requests and Jackson for efficiently parsing JSON data. Requests are stored in a PostgreSQL database running in a Docker container. Most importantly, this project taught me how to properly test my code with Unit and Integration tests.
 
 # Implementaiton
 ## ER Diagram
