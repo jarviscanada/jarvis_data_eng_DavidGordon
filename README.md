@@ -4,11 +4,11 @@ Hi, my name is David Gordon. I am a professional Software Engineer based in Toro
 
 ## Skills
 
-**Proficient:** Java, Linux/Bash, RDBMS/SQL, Agile/Scrum, Git, C#
+**Proficient:** C#, Java, Linux/Bash, RDBMS/SQL, Agile/Scrum, Git
 
 **Competent:** C/C++, Rust, Typescript, Python, React
 
-**Familiar:** Azure, Angular, Assembly, Lua, Non-Relational DBs
+**Familiar:** Azure, Angular, Go, Lua, Non-Relational DBs
 
 ## Jarvis Projects
 
@@ -16,6 +16,12 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_DavidGordo
 
 
 **Cluster Monitor** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_DavidGordon/tree/master/linux_sql)]: The Linux Cluster Monitoring Agent is a simple yet powerful solution to gathering a host system's hardware information and usage. This product is intended for IT teams who need a way to log and review their systems usage to manage server costs and performance.
+
+**Sql Queries** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_DavidGordon/tree/master/sql)]: The SQL Queries project consists of several SQL tables that contain different relations to one another, in a PostgreSQL database running in a docker container. The purpose of this project was to become more familiar with SQL and it's various features, such as Aggregate functions, String functions, Joins, Unions and more. We created queries to Insert, Update and Delete records from tables, used Joins to combine tables for more complex views into our data, and Subqueries to collect and display specific information, like the facility with the highest bookings.
+
+**Java Grep** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_DavidGordon/tree/master/core_java/grep)]: The Grep app is a small Java application that takes advantage of the Java 8 Stream API, and regex pattern matching to search for specific patterns in files withing a given directory. The use of Lambda expressions for filtering data makes the underlying code more expressive, and therefore easier to understand. The app uses SLF4J to log any errors to the User, and allows the User to provide an out file where all matches will be written. The Grep app was also Dockerized for easier distribution.
+
+**Stockquote JDBC** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_DavidGordon/tree/master/core_java/jdbc)]: The Stockquote app is a Java tool that enables users to buy and sell stock positions in real-time. The app uses a third-party API that returns stock market data in JSON format, which is then parsed into Java objects for processing. Itleverages modern libraries such as OkHttp for making HTTP requests and Jackson for efficiently parsing JSON data. Requests are stored in a PostgreSQL database running in a Docker container. The application contains numerous Unit and Integration tests to ensure program accuracy.
 
 
 ## Highlighted Projects

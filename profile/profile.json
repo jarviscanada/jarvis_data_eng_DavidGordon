@@ -28,6 +28,21 @@
       "description": "The Linux Cluster Monitoring Agent is a simple yet powerful solution to gathering a host system's hardware information and usage. This product is intended for IT teams who need a way to log and review their systems usage to manage server costs and performance.",
       "git_url": "/linux_sql",
       "name": "Cluster Monitor"
+    },
+    {
+      "description": "The SQL Queries project consists of several SQL tables that contain different relations to one another, in a PostgreSQL database running in a docker container. The purpose of this project was to become more familiar with SQL and it's various features, such as Aggregate functions, String functions, Joins, Unions and more. We created queries to Insert, Update and Delete records from tables, used Joins to combine tables for more complex views into our data, and Subqueries to collect and display specific information, like the facility with the highest bookings.",
+      "git_url": "/sql",
+      "name": "Sql Queries"
+    },
+    {
+      "description": "The Grep app is a small Java application that takes advantage of the Java 8 Stream API, and regex pattern matching to search for specific patterns in files withing a given directory. The use of Lambda expressions for filtering data makes the underlying code more expressive, and therefore easier to understand. The app uses SLF4J to log any errors to the User, and allows the User to provide an out file where all matches will be written. The Grep app was also Dockerized for easier distribution.",
+      "git_url": "/core_java/grep",
+      "name": "Java Grep"
+    },
+    {
+      "description": "The Stockquote app is a Java tool that enables users to buy and sell stock positions in real-time. The app uses a third-party API that returns stock market data in JSON format, which is then parsed into Java objects for processing. Itleverages modern libraries such as OkHttp for making HTTP requests and Jackson for efficiently parsing JSON data. Requests are stored in a PostgreSQL database running in a Docker container. The application contains numerous Unit and Integration tests to ensure program accuracy.",
+      "git_url": "/core_java/jdbc",
+      "name": "Stockquote JDBC"
     }
   ],
   "name": "David Gordon",
@@ -78,17 +93,17 @@
     "familiar": [
       "Azure",
       "Angular",
-      "Assembly",
+      "Go",
       "Lua",
       "Non-Relational DBs"
     ],
     "proficient": [
+      "C#",
       "Java",
       "Linux/Bash",
       "RDBMS/SQL",
       "Agile/Scrum",
-      "Git",
-      "C#"
+      "Git"
     ]
   },
   "summary": "Hi, my name is David Gordon. I am a professional Software Engineer based in Toronto, working on various projects at Jarvis. I received a diploma in computer programming from Conestoga College, and I'm experienced in various technologies, languages and frameworks, creating efficient applications and elegant interfaces. I've created RestAPI's in Go, Rust, C# and Java, as well as full-stack apps using Blazor, Bootstrap, Angular, and deployed them to the cloud via Azure."
