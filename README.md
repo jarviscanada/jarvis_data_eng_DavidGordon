@@ -4,11 +4,11 @@ Hi, my name is David Gordon. I am a professional Software Engineer based in Toro
 
 ## Skills
 
-**Proficient:** Java, Linux/Bash, RDBMS/SQL, Agile/Scrum, Git, C#
+**Proficient:** C#, Java, Linux/Bash, RDBMS/SQL, Agile/Scrum, Git
 
 **Competent:** C/C++, Rust, Typescript, Python, React
 
-**Familiar:** Azure, Angular, Assembly, Lua, Non-Relational DBs
+**Familiar:** Azure, Angular, Go, Lua, Non-Relational DBs
 
 ## Jarvis Projects
 
@@ -21,6 +21,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_DavidGordo
 
 **Java Grep** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_DavidGordon/tree/master/core_java/grep)]: The Grep app is a small Java application that takes advantage of the Java 8 Stream API, and regex pattern matching to search for specific patterns in files withing a given directory. The use of Lambda expressions for filtering data makes the underlying code more expressive, and therefore easier to understand. The app uses SLF4J to log any errors to the User, and allows the User to provide an out file where all matches will be written. The Grep app was also Dockerized for easier distribution.
 
+**Stockquote JDBC** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_DavidGordon/tree/master/core_java/jdbc)]: The Stockquote app is a Java tool that enables users to buy and sell stock positions in real-time. The app uses a third-party API that returns stock market data in JSON format, which is then parsed into Java objects for processing. Itleverages modern libraries such as OkHttp for making HTTP requests and Jackson for efficiently parsing JSON data. Requests are stored in a PostgreSQL database running in a Docker container. The application contains numerous Unit and Integration tests to ensure program accuracy.
 
 ## Highlighted Projects
 **Flashtyper type tester** [[GitHub](https://github.com/davidgordon12/FlashTyper-MVC)]: Online typing speed tracker with a global leaderboard. Written in C# ASP.NET, data is stored in a Microsoft SQL Server database, hosted in the cloud via Azure

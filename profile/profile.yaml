@@ -12,12 +12,12 @@ summary: Hi, my name is David Gordon. I am a professional Software Engineer base
 skills:
   # At least 5 skills
   proficient:
+    - C#
     - Java
     - Linux/Bash
     - RDBMS/SQL
     - Agile/Scrum
     - Git
-    - C#
   # At least 5 skills
   competent:
     - C/C++
@@ -29,7 +29,7 @@ skills:
   familiar:
     - Azure
     - Angular
-    - Assembly
+    - Go
     - Lua
     - Non-Relational DBs
 
@@ -46,7 +46,10 @@ jarvis_projects:
   - name: "Java Grep"
     git_url: "/core_java/grep"
     description: "The Grep app is a small Java applications that takes advantage of the Java 8 Stream API, and regex pattern matching to search for specific patterns in files withing a given directory. The use of Lambda expressions for filtering data makes the underlying code more expressive, and therefore easier to understand. The app uses SLF4J to log any errors to the User, and allows the User to provide an out file where all matches will be written. The Grep app was also Dockerized for easier distribution."
-
+    description: "The Grep app is a small Java application that takes advantage of the Java 8 Stream API, and regex pattern matching to search for specific patterns in files withing a given directory. The use of Lambda expressions for filtering data makes the underlying code more expressive, and therefore easier to understand. The app uses SLF4J to log any errors to the User, and allows the User to provide an out file where all matches will be written. The Grep app was also Dockerized for easier distribution."
+  - name: "Stockquote JDBC"
+    git_url: "/core_java/jdbc"
+    description: "The Stockquote app is a Java tool that enables users to buy and sell stock positions in real-time. The app uses a third-party API that returns stock market data in JSON format, which is then parsed into Java objects for processing. Itleverages modern libraries such as OkHttp for making HTTP requests and Jackson for efficiently parsing JSON data. Requests are stored in a PostgreSQL database running in a Docker container. The application contains numerous Unit and Integration tests to ensure program accuracy."
 
 # List of personal or academic projects
 # Feel free to add more projects
