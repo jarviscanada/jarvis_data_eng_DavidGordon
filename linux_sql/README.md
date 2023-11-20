@@ -1,0 +1,60 @@
+# Introduction
+The Linux Cluster Monitoring Agent is a simple yet powerful solution to gathering a host system's hardware information and usage. This product is intended for IT teams who need a way to log and review their systems usage to manage server costs and performance. 
+
+# Quick Start
+- Clone the repo
+- Start a psql instance using psql_docker.sh
+- Create tables using ddl.sql
+- Insert hardware specs data into the DB using host_info.sh
+- Insert hardware usage data into the DB using host_usage.sh
+- Crontab setup
+
+# Implemenation
+The Monitoring Agent is implemented in Bash, communicating to a PostgresSQL instance through docker. The project's development history is available via git commits.
+
+## Architecture
+![Architecture Diagram](assets/architecture.png) <br />
+As shown in the diagram, each node runs an instange of the agent (via a cron job) that communicates with a PostgreSQL database.
+
+## Scripts
+Shell script description and usage
+- psql_docker.sh > [start|stop|create] > Creates a Docker container with the latest PostgreSQL image
+- host_info.sh > host, port, db, username, password > Reads host information such as hostname, architecture, total memory, and inserts a row into the PostgreSQL database
+- host_usage.sh > host, port, db, username, password > Reads host information such as hostname, architecture, total memory, and inserts a row into the PostgreSQL database
+- crontab > crontab -e 't script-path' > Schedules a cron job to run every 't' seconds
+- ddl.sql > Connects to the host_agent database and creates usage and info tables
+
+## Database Modeling
+- `host_info` <br >
+The host info table contains specific information about the host machine. <br />
+`Id:` Auto-incremented identifier for each row (PK) <br />
+`Hostname:` A unique field that holds the name of the target machine <br />
+`CPU Number:` The number of CPU cores present <br />
+`CPU Architecture:` The CPU architecture (i.e. x86, ARM, RISC V) <br />
+`CPU Model:` The CPU Model number <br />
+`CPU Mhz:` The speed in which a CPU can execute instructions <br />
+`L2 Cache:` The CPUs cache size in Kilobytes <br />
+`Total Memory:` The total RAM available in Megabytes <br />
+`Timestamp:` UTC timestamp when the row was inserted into the PostgreSQL database <br />
+
+- `host_usage` <br />
+The host usage table contains specific information about the hosts hardware information and activity. <br />
+`Host Id:` Foreign key that links each row back to a host stored in host_info (FK) <br />
+`Memory Free:` The amount of memory free in Megabytes <br />
+`CPU Idle:` The amount of time spent idle <br />
+`CPU Kernel:` The amount of time spent running kernel code <br />
+`Disk IO:` Current IO transfer speeds <br />
+`Disk Space Available:` Amount of disk space available in Megabytes <br />
+`Timestamp:` UTC timestamp when the row was inserted into the PostgreSQL database <br />
+
+# Test
+DDL scripts were tested by running the scripts and querying the database to see if the expected result was outputted.
+All bash scripts were debugged by running bash with the -x flag. Guard clauses are in place to ensure correct arguments are passed.
+
+# Deployment
+The agent is deployed via a cron job that stores a usage and info record into the PostgreSQL database every 60 seconds
+
+# Improvements
+- Error handling
+- Windows compatibility
+- UI 
