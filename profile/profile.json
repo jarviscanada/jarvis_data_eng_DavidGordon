@@ -46,7 +46,7 @@
     },
     {
       "description": "In the Javascript and Typescript project, I was able to gain acomprehensive understanding of both languages. The project served as an in-depth learning experience, from fundamental Javascript concepts like Callbacks and the Event-Loop, to more advanced topics in Typescript such as Generics and OOP. Ileveraged my new skills by creating datastructures like a Doubly Linked List, implementing a Sudoku solver, and solving complex algorithmic problems. Overall,the project helped me learn asynchronous programming, modular design, and the effectiveness of TypeScript's powerful type system.",
-      "git_url": "/Javascript_Typescript",
+      "git_url": "/JavaScript_TypeScript",
       "name": "Javascript \u0026 Typescript"
     }
   ],
