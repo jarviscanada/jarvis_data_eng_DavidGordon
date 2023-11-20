@@ -4,12 +4,17 @@ const ContentType = {
     TEXT: "TEXT",
 }
 
-function parseCss(css) {
+type Content = {
+    contentType: string,
+    content: Object,
+}
+
+function parseCss(css: string): Object {
     let cssTargets = new Map();
-    let start = 0
+    let start: number = 0
     for(let i = 0; i < css.length; ++i) {
         if(css[i] == '{') {
-            let target = css.substring(start, i)
+            let target: string = css.substring(start, i)
             if(cssTargets.has(target)) {
                 cssTargets.set(target, cssTargets.get(target) + 1)
             } else { 
@@ -19,10 +24,11 @@ function parseCss(css) {
             start = i+2
         }
     }
-    return Object.fromEntries(cssTargets)
+    
+    return Object.fromEntries(cssTargets);
 }
 
-function parseHtml(html) {
+function parseHtml(html: string): Object {
     let tags = new Map();
     for(let i = 0; i < html.length; ++i) {
         if(html[i] == '<') {
@@ -37,11 +43,12 @@ function parseHtml(html) {
             }
         }
     }
+
     return Object.fromEntries(tags)
 }
 
-function parseText(text) {
-    let count = 0
+function parseText(text: string): Object {
+    let count: number = 0
     for(let i = 0; i < text.length; ++i) {
         if(text[i] == '\n') {
             count++;
@@ -50,21 +57,21 @@ function parseText(text) {
     return count+1
 }
 
-function analyzeContent(stringToAnalyze) {
+function analyzeContent(stringToAnalyze: string): Content {
     if (stringToAnalyze.includes('{') && stringToAnalyze.includes('}')) {
-       return cssObject = {
+       return {
             contentType: ContentType.CSS,
-            cssTargets: parseCss(stringToAnalyze)
+            content: parseCss(stringToAnalyze)
        } 
     } else if (stringToAnalyze.includes('<') && stringToAnalyze.includes('>')) {
-       return htmlObject = {
+       return {
             contentType: ContentType.HTML,
-            tags: parseHtml(stringToAnalyze)
+            content: parseHtml(stringToAnalyze)
        } 
     } else {
-        return textObject = {
+        return {
             contentType: ContentType.TEXT,
-            lineNumber: parseText(stringToAnalyze)
+            content: parseText(stringToAnalyze)
         }
     }
 }
