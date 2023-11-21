@@ -38,6 +38,14 @@
       "description": "The Grep app is a small Java applications that takes advantage of the Java 8 Stream API, and regex pattern matching to search for specific patterns in files withing a given directory. The use of Lambda expressions for filtering data makes the underlying code more expressive, and therefore easier to understand. The app uses SLF4J to log any errors to the User, and allows the User to provide an out file where all matches will be written. The Grep app was also Dockerized for easier distribution.",
       "git_url": "/core_java/grep",
       "name": "Java Grep"
+      "description": "The Grep app is a small Java application that takes advantage of the Java 8 Stream API, and regex pattern matching to search for specific patterns in files withing a given directory. The use of Lambda expressions for filtering data makes the underlying code more expressive, and therefore easier to understand. The app uses SLF4J to log any errors to the User, and allows the User to provide an out file where all matches will be written. The Grep app was also Dockerized for easier distribution.",
+      "git_url": "/core_java/grep",
+      "name": "Java Grep"
+    },
+    {
+      "description": "The Stockquote app is a Java tool that enables users to buy and sell stock positions in real-time. The app uses a third-party API that returns stock market data in JSON format, which is then parsed into Java objects for processing. Itleverages modern libraries such as OkHttp for making HTTP requests and Jackson for efficiently parsing JSON data. Requests are stored in a PostgreSQL database running in a Docker container. The application contains numerous Unit and Integration tests to ensure program accuracy.",
+      "git_url": "/core_java/jdbc",
+      "name": "Stockquote JDBC"
     }
   ],
   "name": "David Gordon",
@@ -88,17 +96,17 @@
     "familiar": [
       "Azure",
       "Angular",
-      "Assembly",
+      "Go",
       "Lua",
       "Non-Relational DBs"
     ],
     "proficient": [
+      "C#",
       "Java",
       "Linux/Bash",
       "RDBMS/SQL",
       "Agile/Scrum",
-      "Git",
-      "C#"
+      "Git"
     ]
   },
   "summary": "Hi, my name is David Gordon. I am a professional Software Engineer based in Toronto, working on various projects at Jarvis. I received a diploma in computer programming from Conestoga College, and I'm experienced in various technologies, languages and frameworks, creating efficient applications and elegant interfaces. I've created RestAPI's in Go, Rust, C# and Java, as well as full-stack apps using Blazor, Bootstrap, Angular, and deployed them to the cloud via Azure."

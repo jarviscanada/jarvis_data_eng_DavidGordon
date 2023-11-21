@@ -23,7 +23,6 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_DavidGordo
 
 **Stockquote JDBC** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_DavidGordon/tree/master/core_java/jdbc)]: The Stockquote app is a Java tool that enables users to buy and sell stock positions in real-time. The app uses a third-party API that returns stock market data in JSON format, which is then parsed into Java objects for processing. Itleverages modern libraries such as OkHttp for making HTTP requests and Jackson for efficiently parsing JSON data. Requests are stored in a PostgreSQL database running in a Docker container. The application contains numerous Unit and Integration tests to ensure program accuracy.
 
-
 ## Highlighted Projects
 **Flashtyper type tester** [[GitHub](https://github.com/davidgordon12/FlashTyper-MVC)]: Online typing speed tracker with a global leaderboard. Written in C# ASP.NET, data is stored in a Microsoft SQL Server database, hosted in the cloud via Azure
 
