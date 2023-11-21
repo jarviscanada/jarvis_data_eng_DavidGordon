@@ -50,7 +50,7 @@ jarvis_projects:
     git_url: "/core_java/jdbc"
     description: "The Stockquote app is a Java tool that enables users to buy and sell stock positions in real-time. The app uses a third-party API that returnsstock market data in JSON format, which is then parsed into Java objects for processing. Itleverages modern libraries such as OkHttp for making HTTP requests and Jackson for efficiently parsing JSON data. Requests are stored in a PostgreSQL database running in a Docker container. The application contains numerous Unitand Integration tests to ensure program accuracy."
   - name: "Javascript & Typescript"
-    git_url: "/Javascript_Typescript"
+    git_url: "/JavaScript_TypeScript"
     description: "In the Javascript and Typescript project, I was able to gain acomprehensive understanding of both languages. The project served as an in-depth learning experience, from fundamental Javascript concepts like Callbacks and the Event-Loop, to more advanced topics in Typescript such as Generics and OOP. Ileveraged my new skills by creating datastructures like a Doubly Linked List, implementing a Sudoku solver, and solving complex algorithmic problems. Overall,the project helped me learn asynchronous programming, modular design, and the effectiveness of TypeScript's powerful type system."
 
 
