@@ -21,7 +21,7 @@ class MarketDataDaoTest {
     MarketDataDao dao;
 
     @Test
-    void saveQuoteById() throws IOException {
+    public void saveQuoteById() throws IOException {
         // Arrange
         IexQuote quote = new IexQuote();
 
@@ -33,7 +33,7 @@ class MarketDataDaoTest {
     }
 
     @Test
-    void findByAllId() throws IOException {
+    public void findByAllId() throws IOException {
         // Arrange
         List<IexQuote> quoteList = Collections.emptyList();
 
