@@ -1,8 +1,10 @@
-package ca.jrvs.apps.trading.model;
+package ca.jrvs.apps.trading.dao;
 
 import java.util.List;
 import java.util.Optional;
 
+import ca.jrvs.apps.trading.model.IexQuote;
+import org.apache.http.client.HttpClient;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -21,4 +23,4 @@ public interface MarketDataDao extends JpaRepository<IexQuote, String> {
     void deleteAll();
     IexQuote save(IexQuote entity);
     List<IexQuote> saveAll(List<IexQuote> entities);
-} 
+}
