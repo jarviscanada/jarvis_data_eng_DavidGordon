@@ -1,5 +1,6 @@
 package ca.jrvs.apps.trading;
 
+import ca.jrvs.apps.trading.dao.MarketDataHttpHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -11,15 +12,11 @@ import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfigurat
 
 @SpringBootApplication(exclude = {JdbcTemplateAutoConfiguration.class,
   DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
-class Application implements CommandLineRunner {
+class Application {
   private Logger logger = LoggerFactory.getLogger(Application.class);
 
   public static void main(String args[]) {
     SpringApplication.run(Application.class, args);
   }
 
-  @Override
-  public void run(String ... args) throws Exception {
-
-  }
 }

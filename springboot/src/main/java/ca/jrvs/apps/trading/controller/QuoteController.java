@@ -1,30 +1,39 @@
 package ca.jrvs.apps.trading.controller;
 
-import ca.jrvs.apps.trading.AppConfig;
-import ca.jrvs.apps.trading.dao.IexQuoteHttpHelper;
+import ca.jrvs.apps.trading.dao.MarketDataHttpHelper;
 import ca.jrvs.apps.trading.model.IexQuote;
 import ca.jrvs.apps.trading.service.QuoteService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 
 @Controller
-@RequestMapping("/getQuote")
+@RequestMapping("/quote")
 public class QuoteController {
+    private Logger logger = LoggerFactory.getLogger(QuoteController.class);
+
+    @Autowired
     private final QuoteService quoteService;
 
     @Autowired
     public QuoteController(QuoteService quoteService) {
+        logger.debug("Creating QuoteController");
         this.quoteService = quoteService;
     }
 
     @GetMapping("iex/stock/{ticker}")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
     public IexQuote getQuote(@PathVariable String ticker) {
-        return null;
+        try {
+            return quoteService.findIexQuoteByTicker(ticker);
+        } catch (Exception e) {
+            throw ResponseExceptionUtil.getResponseStatusException(e);
+        }
     }
 }
