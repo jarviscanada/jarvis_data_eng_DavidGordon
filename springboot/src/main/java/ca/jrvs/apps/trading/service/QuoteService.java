@@ -1,13 +1,18 @@
 package ca.jrvs.apps.trading.service;
 
 import ca.jrvs.apps.trading.dao.MarketDataHttpHelper;
+import ca.jrvs.apps.trading.dao.QuoteDao;
 import ca.jrvs.apps.trading.model.IexQuote;
 import ca.jrvs.apps.trading.model.Quote;
+import javassist.NotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,9 +22,13 @@ public class QuoteService {
     @Autowired
     private final MarketDataHttpHelper marketDataHttpHelper;
 
-    public QuoteService(MarketDataHttpHelper marketDataHttpHelper) {
+    @Autowired
+    private final QuoteDao quoteDao;
+
+    public QuoteService(MarketDataHttpHelper marketDataHttpHelper, QuoteDao quoteDao) {
         logger.debug("Creating QuoteService");
         this.marketDataHttpHelper = marketDataHttpHelper;
+        this.quoteDao = quoteDao;
     }
 
     /**
@@ -27,7 +36,7 @@ public class QuoteService {
      *
      * @param ticker the stock ticker
      * @return corresponding IexQuote object
-     * @throws IllegalArgumentExcpetion if ticker is invalid
+     * @throws IllegalArgumentException if ticker is invalid
      */
     public IexQuote findIexQuoteByTicker(String ticker) {
         logger.info("Fetching quote from IEX");
@@ -48,12 +57,35 @@ public class QuoteService {
      * - convert IexQuote to Quote entity
      * - persist quote to db
      *
-     * @throws ResourceNotFoundException if ticker is not found from IEX
      * @throws DataAccessException if unable to retrieve data
      * @throws IllegalArgumentException for invalid input
      */
     public void updateMarketData() {
-        return;
+        try {
+            List<Quote> quoteList = quoteDao.findAll();
+            List<String> quoteTickers = new ArrayList<>();
+            List<Quote> updatedQuoteList = new ArrayList<>();
+
+            for(Quote q : quoteList) {
+                quoteTickers.add(q.getTicker());
+            }
+
+            Optional<List<IexQuote>> iexQuoteListOptional = marketDataHttpHelper.getBatchQuote(quoteTickers);
+
+            if(iexQuoteListOptional.isEmpty()) {
+                throw new NotFoundException("Invalid tickers");
+            }
+
+            for(IexQuote iexQuote : iexQuoteListOptional.get()) {
+                updatedQuoteList.add(buildQuoteFromIexQuote(iexQuote));
+            }
+
+            quoteDao.saveAll(updatedQuoteList);
+        } catch (Exception e) {
+            logger.error("Error updating market data: " + e.getMessage());
+        }
+
+        throw new IllegalArgumentException("Ticker is invalid");
     }
 
     /**
