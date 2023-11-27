@@ -1,7 +1,8 @@
 package ca.jrvs.apps.trading.controller;
 
-import ca.jrvs.apps.trading.dao.MarketDataHttpHelper;
+import ca.jrvs.apps.trading.dao.QuoteDao;
 import ca.jrvs.apps.trading.model.IexQuote;
+import ca.jrvs.apps.trading.model.Quote;
 import ca.jrvs.apps.trading.service.QuoteService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,8 +11,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
-
 @Controller
 @RequestMapping("/quote")
 public class QuoteController {
@@ -19,6 +18,7 @@ public class QuoteController {
 
     @Autowired
     private final QuoteService quoteService;
+
 
     @Autowired
     public QuoteController(QuoteService quoteService) {

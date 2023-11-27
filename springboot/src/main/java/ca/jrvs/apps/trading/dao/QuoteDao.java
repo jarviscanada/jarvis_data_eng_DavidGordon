@@ -1,21 +1,20 @@
 package ca.jrvs.apps.trading.dao;
 
-import java.util.List;
-import java.util.Optional;
+import ca.jrvs.apps.trading.model.Quote;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.Optional;
+
 @Repository
 public interface QuoteDao extends JpaRepository<Quote, String> {
-    Optional<Quote> findById(String ticker);
-    List<Quote> findAllById(Iterable<String> tickers);
-    boolean existsById(String s);
+    Quote save(Quote quote);
+    List<Quote> saveAll(List<Quote> quotes);
     List<Quote> findAll();
+    Optional<Quote> findById(String ticker);
+    boolean existsById(String ticker);
+    void deleteById(String ticker);
     long count();
-    void deleteById(String s);
-    void delete(Quote entity);
-    void deleteAll(Iterable<? extends Quote> entities);
     void deleteAll();
-    Quote save(Quote entity);
-    List<Quote> saveAll(List<Quote> entities);
 }

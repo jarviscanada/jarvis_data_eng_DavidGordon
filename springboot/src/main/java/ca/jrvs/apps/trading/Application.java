@@ -1,9 +1,7 @@
 package ca.jrvs.apps.trading;
 
-import ca.jrvs.apps.trading.dao.MarketDataHttpHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -17,6 +15,8 @@ class Application {
 
   public static void main(String args[]) {
     SpringApplication.run(Application.class, args);
+
+
   }
 
 }
