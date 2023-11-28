@@ -42,7 +42,7 @@ public class QuoteService {
         logger.info("Fetching quote from IEX");
 
         Optional<IexQuote> iexQuoteOptional = marketDataHttpHelper.getIexQuote(ticker);
-        if(iexQuoteOptional.isPresent()) {
+        if (iexQuoteOptional.isPresent()) {
             return iexQuoteOptional.get();
         }
 
@@ -51,13 +51,12 @@ public class QuoteService {
 
     /**
      * Update quote table against IEX source
-     *
      * - get all quotes from the db
      * - for each ticker get IexQuote
      * - convert IexQuote to Quote entity
      * - persist quote to db
      *
-     * @throws DataAccessException if unable to retrieve data
+     * @throws DataAccessException      if unable to retrieve data
      * @throws IllegalArgumentException for invalid input
      */
     public void updateMarketData() {
@@ -66,17 +65,17 @@ public class QuoteService {
             List<String> quoteTickers = new ArrayList<>();
             List<Quote> updatedQuoteList = new ArrayList<>();
 
-            for(Quote q : quoteList) {
+            for (Quote q : quoteList) {
                 quoteTickers.add(q.getTicker());
             }
 
             Optional<List<IexQuote>> iexQuoteListOptional = marketDataHttpHelper.getBatchQuote(quoteTickers);
 
-            if(iexQuoteListOptional.isEmpty()) {
+            if (iexQuoteListOptional.isEmpty()) {
                 throw new NotFoundException("Invalid tickers");
             }
 
-            for(IexQuote iexQuote : iexQuoteListOptional.get()) {
+            for (IexQuote iexQuote : iexQuoteListOptional.get()) {
                 updatedQuoteList.add(buildQuoteFromIexQuote(iexQuote));
             }
 
@@ -90,7 +89,7 @@ public class QuoteService {
 
     /**
      * Validate (against IEX) and save given tickers to quote table
-     *
+     * <p>
      * - get IexQuote(s)
      * - convert each IexQuote to Quote entity
      * - persist the quote to db
@@ -100,7 +99,23 @@ public class QuoteService {
      * @throws IllegalArgumentException if ticker is not found from IEX
      */
     public List<Quote> saveQuotes(List<String> tickers) {
-        return null;
+        List<Quote> quoteList = new ArrayList<>();
+        try {
+            Optional<List<IexQuote>> iexQuoteListOptional = marketDataHttpHelper.getBatchQuote(tickers);
+
+            if (iexQuoteListOptional.isEmpty()) {
+                throw new NotFoundException("Invalid tickers");
+            }
+
+            for (IexQuote iexQuote : iexQuoteListOptional.get()) {
+                quoteList.add(buildQuoteFromIexQuote(iexQuote));
+            }
+
+            quoteDao.saveAll(quoteList);
+        } catch (Exception e) {
+            logger.error("Error saving quotes: " + e.getMessage());
+        }
+        return quoteList;
     }
 
     /**
@@ -110,7 +125,7 @@ public class QuoteService {
      * @return the saved quote entity
      */
     public Quote saveQuote(Quote quote) {
-        return null;
+        return quoteDao.save(quote);
     }
 
     /**
@@ -119,7 +134,7 @@ public class QuoteService {
      * @return a list of quotes
      */
     public List<Quote> findAllQuotes() {
-        return null;
+        return quoteDao.findAll();
     }
 
     /**
@@ -128,6 +143,13 @@ public class QuoteService {
      * Make sure to set a default value for number field(s)
      */
     protected static Quote buildQuoteFromIexQuote(IexQuote iexQuote) {
-        return null;
+        Quote quote = new Quote();
+        quote.setTicker(iexQuote.getSymbol());
+        quote.setAskPrice(Double.valueOf(iexQuote.getIexAskPrice()));
+        quote.setAskSize(iexQuote.getIexAskSize());
+        quote.setBidPrice(Double.valueOf(iexQuote.getIexBidPrice()));
+        quote.setBidSize(iexQuote.getIexBidSize());
+        quote.setLastPrice(iexQuote.getIexClose());
+        return quote;
     }
 }
