@@ -4,27 +4,22 @@ import ca.jrvs.apps.trading.dao.MarketDataHttpHelper;
 import ca.jrvs.apps.trading.dao.QuoteDao;
 import ca.jrvs.apps.trading.model.IexQuote;
 import ca.jrvs.apps.trading.model.Quote;
-import javassist.NotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class QuoteService {
     private static final Logger logger = LoggerFactory.getLogger(QuoteService.class);
-    @Autowired
-    private final MarketDataHttpHelper marketDataHttpHelper;
+    private MarketDataHttpHelper marketDataHttpHelper;
+    private QuoteDao quoteDao;
 
     @Autowired
-    private final QuoteDao quoteDao;
-
     public QuoteService(MarketDataHttpHelper marketDataHttpHelper, QuoteDao quoteDao) {
         logger.debug("Creating QuoteService");
         this.marketDataHttpHelper = marketDataHttpHelper;
@@ -56,7 +51,6 @@ public class QuoteService {
      * - convert IexQuote to Quote entity
      * - persist quote to db
      *
-     * @throws DataAccessException      if unable to retrieve data
      * @throws IllegalArgumentException for invalid input
      */
     public void updateMarketData() {
@@ -72,7 +66,7 @@ public class QuoteService {
             Optional<List<IexQuote>> iexQuoteListOptional = marketDataHttpHelper.getBatchQuote(quoteTickers);
 
             if (iexQuoteListOptional.isEmpty()) {
-                throw new NotFoundException("Invalid tickers");
+                throw new IllegalArgumentException("Invalid tickers");
             }
 
             for (IexQuote iexQuote : iexQuoteListOptional.get()) {
@@ -104,7 +98,7 @@ public class QuoteService {
             Optional<List<IexQuote>> iexQuoteListOptional = marketDataHttpHelper.getBatchQuote(tickers);
 
             if (iexQuoteListOptional.isEmpty()) {
-                throw new NotFoundException("Invalid tickers");
+                throw new IllegalArgumentException("Invalid tickers");
             }
 
             for (IexQuote iexQuote : iexQuoteListOptional.get()) {
@@ -125,6 +119,12 @@ public class QuoteService {
      * @return the saved quote entity
      */
     public Quote saveQuote(Quote quote) {
+        return quoteDao.save(quote);
+    }
+
+    public Quote saveQuote(String ticker) {
+        IexQuote iexQuote = findIexQuoteByTicker(ticker);
+        Quote quote = buildQuoteFromIexQuote(iexQuote);
         return quoteDao.save(quote);
     }
 

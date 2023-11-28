@@ -4,15 +4,11 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import javax.annotation.Generated;
-import javax.persistence.Entity;
-import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /*
  * https://cloud.iexapis.com/stable/stock/{symbol}/quote
