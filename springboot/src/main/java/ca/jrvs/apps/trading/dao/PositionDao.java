@@ -10,9 +10,4 @@ import java.util.Optional;
 
 public interface PositionDao extends JpaRepository<Position, Integer> {
 
-    @Override
-    <S extends Position> Optional<S> findOne(Example<S> example);
-
-    @Override
-    <S extends Position> Page<S> findAll(Example<S> example, Pageable pageable);
 }
