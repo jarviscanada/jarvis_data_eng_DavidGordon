@@ -6,6 +6,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import static org.junit.jupiter.api.Assertions.*;
+
+
 @SpringBootTest(classes = {TestConfig.class})
 class QuoteDaoTest {
     @Autowired
@@ -13,13 +16,19 @@ class QuoteDaoTest {
 
     @Test
     void saveOne() {
-        Quote savedQuote = new Quote();
-        savedQuote.setAskPrice(10d);
-        savedQuote.setAskSize(10);
-        savedQuote.setBidPrice(10.2d);
-        savedQuote.setTicker("MSFT");
-        savedQuote.setLastPrice(10.1d);
-        quoteDao.save(savedQuote);
+        // Arrange
+        Quote quote = new Quote();
+        quote.setAskPrice(10d);
+        quote.setAskSize(10);
+        quote.setBidPrice(10.2d);
+        quote.setTicker("MSFT");
+        quote.setLastPrice(10.1d);
+
+        // Act
+        Quote savedQuote = quoteDao.save(quote);
+
+        // Assert
+        assertEquals(quote, savedQuote);
     }
 
     @Test
