@@ -8,7 +8,7 @@ import javax.persistence.Id;
 public class Quote {
 
     @Id
-    @Column(name = "ticker", columnDefinition = "VARCHAR(255)")
+    @Column(name = "ticker")
     private String ticker; //primary key
 
     @Column(name = "last_price")

@@ -8,7 +8,7 @@ import org.springframework.core.env.Environment;
 import javax.sql.DataSource;
 
 @Configuration
-@ComponentScan(basePackages = {"ca.jrvs.apps.trading.dao"})
+@ComponentScan(basePackages = {"ca.jrvs.apps"})
 public class TestConfig implements EnvironmentAware {
     private Environment env;
     @Override
