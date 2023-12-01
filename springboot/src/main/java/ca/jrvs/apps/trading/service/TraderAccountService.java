@@ -86,7 +86,12 @@ public class TraderAccountService {
             throw new IllegalArgumentException("Trader id is invalid");
         }
 
-        traderDao.deleteById(traderId);
+        try {
+            traderDao.deleteById(traderId);
+        } catch (Exception e) {
+            logger.error("Error deleting trader with id " + traderId + ": " + e.getMessage());
+            throw new ResourceNotFoundException("Could not find account with id " + traderId);
+        }
     }
 
     /**
