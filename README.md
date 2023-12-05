@@ -25,6 +25,8 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_DavidGordo
 
 **Javascript & Typescript** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_DavidGordon/tree/master/JavaScript_TypeScript)]: In the Javascript and Typescript project, I was able to gain acomprehensive understanding of both languages. The project served as an in-depth learning experience, from fundamental Javascript concepts like Callbacks and the Event-Loop, to more advanced topics in Typescript such as Generics and OOP. Ileveraged my new skills by creating datastructures like a Doubly Linked List, implementing a Sudoku solver, and solving complex algorithmic problems. Overall,the project helped me learn asynchronous programming, modular design, and the effectiveness of TypeScript's powerful type system.
 
+**Springboot Trading App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_DavidGordon/tree/master/springboot)]: The Springboot Trading App is a Java Web Application that is using the Java Springboot framework. It allows users to buy and sell securities via REST endpoints. The entire application is Dockerized, making it portable and easy to maintain. Market data is fetched from the IEX Cloud API and all data is persisted in a PostgreSQL database, using Spring JPA and Hibernate. The project was tested both manually via Postman and Curl, as well as featuring a full unit and integration test suite with SpringRunner.
+
 
 ## Highlighted Projects
 **Flashtyper type tester** [[GitHub](https://github.com/davidgordon12/FlashTyper-MVC)]: Online typing speed tracker with a global leaderboard. Written in C# ASP.NET, data is stored in a Microsoft SQL Server database, hosted in the cloud via Azure
