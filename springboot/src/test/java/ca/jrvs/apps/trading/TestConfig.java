@@ -1,6 +1,8 @@
 package ca.jrvs.apps.trading;
 
+import ca.jrvs.apps.trading.dao.MarketDataHttpHelper;
 import org.springframework.context.EnvironmentAware;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
@@ -15,4 +17,5 @@ public class TestConfig implements EnvironmentAware {
     public void setEnvironment(Environment environment) {
         this.env = environment;
     }
+
 }

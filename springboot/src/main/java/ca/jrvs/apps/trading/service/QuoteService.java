@@ -142,7 +142,7 @@ public class QuoteService {
      * Note: 'iexQuote.getLatestPrice() == null' if the stock market is closed
      * Make sure to set a default value for number field(s)
      */
-    protected static Quote buildQuoteFromIexQuote(IexQuote iexQuote) {
+    public Quote buildQuoteFromIexQuote(IexQuote iexQuote) {
         Quote quote = new Quote();
         quote.setTicker(iexQuote.getSymbol());
         quote.setAskPrice(Double.valueOf(iexQuote.getIexAskPrice()));

@@ -13,6 +13,6 @@ import java.util.Optional;
 
 @Repository
 public interface PositionDao extends JpaRepository<Position, Integer> {
-    @Query("SELECT account_id, ticker, sum(size) AS position FROM public.security_order WHERE status = 'FILLED' GROUP BY account_id, ticker")
-    public List<Position> getAllPositions();
+    @Query(value = "SELECT account_id, ticker, sum(size) AS position FROM public.security_order WHERE status != 'FILLED' GROUP BY account_id, ticker", nativeQuery = true)
+    List<Position> getAllPositions();
 }
